@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Próximamente estará disponible el formulario para subir tu resumen a la VI Semana de la Geofísica.">
+  <title>Sube tu resumen | VI Semana de la Geofísica</title>
+  <style>
+    :root {
+      --azul: #062d4d;
+      --naranja: #ff4a17;
+      --crema: #fff7ec;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--azul);
+      background: var(--crema);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 64px) 20px 56px;
+      text-align: center;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h1 span { color: var(--naranja); }
+
+    .afiche {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 18px 45px rgba(6, 45, 77, 0.16);
+    }
+
+    .volver {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 28px;
+      color: white;
+      background: var(--azul);
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .volver:hover,
+    .volver:focus-visible {
+      background: var(--naranja);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1><span>Próximamente</span> estará disponible el formulario para subir tu resumen</h1>
+    <img class="afiche" src="Semana_geofisica_VI_files/recepcion-resumenes.png" alt="Información sobre la recepción de resúmenes para pósteres de la VI Semana de la Geofísica">
+    <a class="volver" href="index.html">Volver al inicio</a>
+  </main>
+</body>
+</html>
