@@ -1462,22 +1462,84 @@ html {
 
                             <hr class="evenz-spacer-m">
 
-                            <article style="text-align:center; background:transparent; box-shadow:none; border:none;">
+                            <style>
+                                .recepcion-resumenes { max-width:1200px; margin:0 auto; padding:0 24px 50px; background:transparent; border:0; box-shadow:none; color:#333; }
+                                .recepcion-resumenes__link { margin:0 0 36px; text-align:center; font-size:24px; font-weight:600; }
+                                .recepcion-resumenes__link a { color:#0073aa; text-decoration:underline; }
+                                .recepcion-resumenes__grid { display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 390px); gap:54px; align-items:start; }
+                                .recepcion-resumenes__contenido { font-size:17px; line-height:1.7; }
+                                .recepcion-resumenes__contenido h3 { margin:0 0 20px; color:#062d59; font-size:30px; line-height:1.2; }
+                                .recepcion-resumenes__contenido h4 { margin:32px 0 16px; color:#062d59; font-size:23px; }
+                                .recepcion-resumenes__contenido p { margin:0 0 17px; }
+                                .recepcion-resumenes__item { display:grid; grid-template-columns:34px minmax(0, 1fr); gap:10px; margin-bottom:18px; }
+                                .recepcion-resumenes__icono { font-size:25px; line-height:1.35; }
+                                .recepcion-resumenes__item p { margin:0; }
+                                .recepcion-resumenes__temas { margin:0 0 20px; padding-left:24px; }
+                                .recepcion-resumenes__temas li { margin-bottom:7px; }
+                                .recepcion-resumenes__fecha { margin:20px 0 25px !important; padding:16px 20px; border-left:5px solid #ff4d19; background:#fff4e9; color:#062d59; font-size:21px; }
+                                .recepcion-resumenes__cierre { color:#062d59; font-size:19px; }
+                                .recepcion-resumenes__flyer { width:100%; max-width:390px; height:auto; justify-self:end; box-shadow:0 8px 24px rgba(0, 0, 0, .14); }
+                                @media (max-width:900px) {
+                                    .recepcion-resumenes__grid { grid-template-columns:1fr; }
+                                    .recepcion-resumenes__flyer { justify-self:center; grid-row:2; }
+                                }
+                                @media (max-width:520px) {
+                                    .recepcion-resumenes { padding-right:10px; padding-left:10px; }
+                                    .recepcion-resumenes__link { font-size:20px; }
+                                    .recepcion-resumenes__contenido h3 { font-size:25px; }
+                                }
+                            </style>
 
-                                <p style="margin-top:20px; font-size:24px; font-weight:600;">
+                            <article class="recepcion-resumenes">
+
+                                <p class="recepcion-resumenes__link">
                                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform"
                                        target="_blank"
-                                       rel="noopener noreferrer"
-                                       style="color:#0073aa; text-decoration:none;">
+                                       rel="noopener noreferrer">
                                         Link de recepción de resúmenes
                                     </a>
                                 </p>
-                                <img src="./Semana_geofisica_VI_files/recepcion-resumenes-2026.png"
-                                     alt="Información sobre la recepción de resúmenes para la VI Semana de la Geofísica"
-                                     style="display:block;
-                                            margin:0 auto;
-                                            max-width:100%;
-                                            height:auto;">
+
+                                <div class="recepcion-resumenes__grid">
+                                    <div class="recepcion-resumenes__contenido">
+                                        <h3>Comparte tu investigación en la VI Semana de la Geofísica</h3>
+                                        <p>La VI Semana de la Geofísica abre la convocatoria para la recepción de resúmenes de trabajos que serán presentados en modalidad póster. Esta es una oportunidad para divulgar avances científicos, metodologías, resultados y aplicaciones relacionadas con la geofísica, la geología y las geociencias.</p>
+                                        <p>El evento se realizará presencialmente del <strong>3 al 7 de noviembre de 2026</strong> en la Universidad Industrial de Santander, en Bucaramanga.</p>
+
+                                        <h4>¿Por qué presentar tu investigación?</h4>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">🔬</span><p><strong>Divulga tus resultados</strong><br>Presenta los principales aportes de tu investigación ante estudiantes, profesores, profesionales e investigadores de diferentes áreas de las geociencias.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">💬</span><p><strong>Recibe retroalimentación</strong><br>Intercambia conocimientos, discute tus resultados y conoce nuevas perspectivas que pueden contribuir al desarrollo de tu trabajo.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">🤝</span><p><strong>Establece conexiones académicas</strong><br>Conoce investigadores con intereses similares y genera oportunidades de colaboración académica y científica.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">📊</span><p><strong>Da visibilidad a tu trabajo</strong><br>Comunica tus avances mediante un póster claro, visual y accesible para los asistentes al evento.</p></div>
+
+                                        <h4>Líneas temáticas</h4>
+                                        <p>La convocatoria incluye investigaciones relacionadas con:</p>
+                                        <ul class="recepcion-resumenes__temas">
+                                            <li>Exploración, adquisición e inversión geofísica.</li>
+                                            <li>Métodos eléctricos, electromagnéticos y potenciales.</li>
+                                            <li>Inteligencia artificial, modelos de lenguaje y métodos computacionales.</li>
+                                            <li>Geoestadística, modelamiento y simulación numérica.</li>
+                                            <li>Sismología, amenazas naturales y gestión del riesgo.</li>
+                                            <li>Teledetección, monitoreo ambiental y cambio climático.</li>
+                                            <li>Hidrogeología, geotecnia y agrogeofísica.</li>
+                                            <li>Recursos minerales, hidrocarburos, energías renovables y transición energética.</li>
+                                        </ul>
+                                        <p>Consulta en el flyer el listado completo de líneas temáticas y selecciona aquella que mejor represente tu investigación.</p>
+
+                                        <h4>¿Cómo enviar tu resumen?</h4>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">📝</span><p><strong>1. Revisa las líneas temáticas</strong><br>Identifica el área que mejor se relaciona con tu trabajo.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">📄</span><p><strong>2. Prepara tu resumen</strong><br>Describe de manera clara el propósito de la investigación, la metodología utilizada, los principales resultados y las conclusiones más relevantes.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">📤</span><p><strong>3. Completa el formulario</strong><br>Registra la información de los autores y sigue las indicaciones disponibles en el formulario de recepción de resúmenes.</p></div>
+                                        <div class="recepcion-resumenes__item"><span class="recepcion-resumenes__icono" aria-hidden="true">⏰</span><p><strong>4. Envía tu propuesta a tiempo</strong><br>La fecha límite para la recepción de resúmenes es el:</p></div>
+
+                                        <p class="recepcion-resumenes__fecha"><strong>Jueves 22 de octubre de 2026</strong></p>
+                                        <p class="recepcion-resumenes__cierre"><strong>¡Presenta tu investigación y forma parte de este espacio de intercambio científico y académico!</strong></p>
+                                    </div>
+
+                                    <img class="recepcion-resumenes__flyer"
+                                         src="./Semana_geofisica_VI_files/recepcion_resumenes_flyer.png"
+                                         alt="Convocatoria para presentar investigaciones en la VI Semana de la Geofísica">
+                                </div>
                             </article>
 
                         </div>
