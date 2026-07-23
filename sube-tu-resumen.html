@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Próximamente estará disponible el formulario para subir tu resumen a la VI Semana de la Geofísica.">
-  <title>Sube tu resumen | VI Semana de la Geofísica</title>
+  <meta name="description" content="Convocatoria para la recepción de resúmenes de la VI Semana de la Geofísica.">
+  <title>Recepción de resúmenes | VI Semana de la Geofísica</title>
   <style>
     :root {
       --azul: #062d4d;
+      --azul-claro: #00629b;
       --naranja: #ff4a17;
       --crema: #fff7ec;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -23,36 +26,121 @@
     }
 
     main {
-      width: min(1120px, 100%);
+      width: min(1240px, 100%);
       margin: 0 auto;
-      padding: clamp(28px, 5vw, 64px) 20px 56px;
+      padding: clamp(28px, 5vw, 64px) 24px 56px;
+    }
+
+    .enlace-formulario {
+      margin: 0 0 42px;
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 700;
       text-align: center;
     }
 
+    a {
+      color: var(--azul-claro);
+    }
+
+    .convocatoria {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    .convocatoria__texto {
+      text-align: left;
+    }
+
     h1 {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      font-size: clamp(2rem, 5vw, 4rem);
+      margin: 0 0 24px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
       line-height: 1.08;
       text-wrap: balance;
     }
 
-    h1 span { color: var(--naranja); }
+    h2 {
+      margin: 34px 0 18px;
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+    }
+
+    p,
+    li {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .item__icono {
+      font-size: 23px;
+      line-height: 1.5;
+    }
+
+    .item p {
+      margin: 0;
+    }
+
+    .lineas {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .pasos {
+      margin-top: 20px;
+    }
+
+    .fecha-limite {
+      margin: 14px 0 0;
+      padding: 16px 20px;
+      color: #fff;
+      background: var(--naranja);
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .cierre {
+      margin-top: 28px;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .convocatoria__figura {
+      margin: 0;
+      justify-self: end;
+      position: sticky;
+      top: 24px;
+    }
 
     .afiche {
       display: block;
-      width: min(100%, 760px);
+      width: 100%;
+      max-width: 430px;
       height: auto;
-      margin: 0 auto;
       border-radius: 8px;
       box-shadow: 0 18px 45px rgba(6, 45, 77, 0.16);
     }
 
-    .volver {
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .boton {
       display: inline-block;
-      margin-top: 32px;
       padding: 14px 28px;
-      color: white;
+      color: #fff;
       background: var(--azul);
       border-radius: 999px;
       font-weight: 700;
@@ -60,25 +148,137 @@
       transition: background .2s ease, transform .2s ease;
     }
 
-    .volver:hover,
-    .volver:focus-visible {
+    .boton--principal {
       background: var(--naranja);
+    }
+
+    .boton:hover,
+    .boton:focus-visible {
+      background: var(--azul-claro);
       transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .convocatoria {
+        grid-template-columns: 1fr;
+      }
+
+      .convocatoria__figura {
+        justify-self: center;
+        position: static;
+      }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1><span>Próximamente</span> estará disponible el formulario para subir tu resumen</h1>
-    <img class="afiche" src="Semana_geofisica_VI_files/recepcion-resumenes.png" alt="Información sobre la recepción de resúmenes para pósteres de la VI Semana de la Geofísica">
-    <section class="proyecto-8091-video" style="max-width:1200px; margin:40px auto; text-align:center;">
-      <h2 style="margin-bottom:24px; color:#062d4d;">Cónoce más sobre el Proyecto 8091 de Minciencias</h2>
-      <video controls preload="metadata" playsinline style="display:block; width:100%; height:auto; margin:0 auto; background:#000;">
-        <source src="Semana_geofisica_VI_files/VIDEO_proyecto_general.mp4" type="video/mp4">
-        Tu navegador no admite la reproducción de video.
-      </video>
+    <p class="enlace-formulario">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform"
+         target="_blank"
+         rel="noopener noreferrer">
+        Link de recepción de resúmenes
+      </a>
+    </p>
+
+    <section class="convocatoria" aria-labelledby="titulo-convocatoria">
+      <div class="convocatoria__texto">
+        <h1 id="titulo-convocatoria">Comparte tu investigación en la VI Semana de la Geofísica</h1>
+
+        <p>La VI Semana de la Geofísica abre la convocatoria para la recepción de resúmenes de trabajos que serán presentados en modalidad póster. Esta es una oportunidad para divulgar avances científicos, metodologías, resultados y aplicaciones relacionadas con la geofísica, la geología y las geociencias.</p>
+
+        <p>El evento se realizará presencialmente del 3 al 7 de noviembre de 2026 en la Universidad Industrial de Santander, en Bucaramanga.</p>
+
+        <h2>¿Por qué presentar tu investigación?</h2>
+
+        <div class="item">
+          <span class="item__icono" aria-hidden="true">🔬</span>
+          <p><strong>Divulga tus resultados</strong><br>
+          Presenta los principales aportes de tu investigación ante estudiantes, profesores, profesionales e investigadores de diferentes áreas de las geociencias.</p>
+        </div>
+
+        <div class="item">
+          <span class="item__icono" aria-hidden="true">💬</span>
+          <p><strong>Recibe retroalimentación</strong><br>
+          Intercambia conocimientos, discute tus resultados y conoce nuevas perspectivas que pueden contribuir al desarrollo de tu trabajo.</p>
+        </div>
+
+        <div class="item">
+          <span class="item__icono" aria-hidden="true">🤝</span>
+          <p><strong>Establece conexiones académicas</strong><br>
+          Conoce investigadores con intereses similares y genera oportunidades de colaboración académica y científica.</p>
+        </div>
+
+        <div class="item">
+          <span class="item__icono" aria-hidden="true">📊</span>
+          <p><strong>Da visibilidad a tu trabajo</strong><br>
+          Comunica tus avances mediante un póster claro, visual y accesible para los asistentes al evento.</p>
+        </div>
+
+        <h2>Líneas temáticas</h2>
+
+        <p>La convocatoria incluye investigaciones relacionadas con:</p>
+
+        <ul class="lineas">
+          <li>Exploración, adquisición e inversión geofísica.</li>
+          <li>Métodos eléctricos, electromagnéticos y potenciales.</li>
+          <li>Inteligencia artificial, modelos de lenguaje y métodos computacionales.</li>
+          <li>Geoestadística, modelamiento y simulación numérica.</li>
+          <li>Sismología, amenazas naturales y gestión del riesgo.</li>
+          <li>Teledetección, monitoreo ambiental y cambio climático.</li>
+          <li>Hidrogeología, geotecnia y agrogeofísica.</li>
+          <li>Recursos minerales, hidrocarburos, energías renovables y transición energética.</li>
+        </ul>
+
+        <p>Consulta en el flyer el listado completo de líneas temáticas y selecciona aquella que mejor represente tu investigación.</p>
+
+        <h2>¿Cómo enviar tu resumen?</h2>
+
+        <div class="pasos">
+          <div class="item">
+            <span class="item__icono" aria-hidden="true">📝</span>
+            <p><strong>1. Revisa las líneas temáticas</strong><br>
+            Identifica el área que mejor se relaciona con tu trabajo.</p>
+          </div>
+
+          <div class="item">
+            <span class="item__icono" aria-hidden="true">📄</span>
+            <p><strong>2. Prepara tu resumen</strong><br>
+            Describe de manera clara el propósito de la investigación, la metodología utilizada, los principales resultados y las conclusiones más relevantes.</p>
+          </div>
+
+          <div class="item">
+            <span class="item__icono" aria-hidden="true">📤</span>
+            <p><strong>3. Completa el formulario</strong><br>
+            Registra la información de los autores y sigue las indicaciones disponibles en el formulario de recepción de resúmenes.</p>
+          </div>
+
+          <div class="item">
+            <span class="item__icono" aria-hidden="true">⏰</span>
+            <p><strong>4. Envía tu propuesta a tiempo</strong><br>
+            La fecha límite para la recepción de resúmenes es:</p>
+          </div>
+        </div>
+
+        <p class="fecha-limite">Jueves 22 de octubre de 2026</p>
+        <p class="cierre">¡Presenta tu investigación y forma parte de este espacio de intercambio científico y académico!</p>
+      </div>
+
+      <figure class="convocatoria__figura">
+        <img class="afiche"
+             src="Semana_geofisica_VI_files/recepcion_resumenes_2026.png"
+             alt="Convocatoria para presentar investigaciones en la VI Semana de la Geofísica">
+      </figure>
     </section>
-    <a class="volver" href="index.html">Volver al inicio</a>
+
+    <div class="acciones">
+      <a class="boton boton--principal"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform"
+         target="_blank"
+         rel="noopener noreferrer">
+        Enviar mi resumen
+      </a>
+      <a class="boton" href="index.html">Volver al inicio</a>
+    </div>
   </main>
 </body>
 </html>
