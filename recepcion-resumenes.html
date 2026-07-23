@@ -1478,10 +1478,11 @@ html {
                                 .recepcion-resumenes__temas li { margin-bottom:7px; }
                                 .recepcion-resumenes__fecha { margin:20px 0 25px !important; padding:16px 20px; border-left:5px solid #ff4d19; background:#fff4e9; color:#062d59; font-size:21px; }
                                 .recepcion-resumenes__cierre { color:#062d59; font-size:19px; }
-                                .recepcion-resumenes__flyer { width:100%; max-width:390px; height:auto; justify-self:end; box-shadow:0 8px 24px rgba(0, 0, 0, .14); }
+                                .recepcion-resumenes__imagenes { display:grid; gap:28px; width:100%; max-width:390px; justify-self:end; }
+                                .recepcion-resumenes__flyer { display:block; width:100%; height:auto; box-shadow:0 8px 24px rgba(0, 0, 0, .14); }
                                 @media (max-width:900px) {
                                     .recepcion-resumenes__grid { grid-template-columns:1fr; }
-                                    .recepcion-resumenes__flyer { justify-self:center; grid-row:2; }
+                                    .recepcion-resumenes__imagenes { justify-self:center; grid-row:2; }
                                 }
                                 @media (max-width:520px) {
                                     .recepcion-resumenes { padding-right:10px; padding-left:10px; }
@@ -1536,9 +1537,14 @@ html {
                                         <p class="recepcion-resumenes__cierre"><strong>¡Presenta tu investigación y forma parte de este espacio de intercambio científico y académico!</strong></p>
                                     </div>
 
-                                    <img class="recepcion-resumenes__flyer"
-                                         src="./Semana_geofisica_VI_files/recepcion_resumenes_flyer.png"
-                                         alt="Convocatoria para presentar investigaciones en la VI Semana de la Geofísica">
+                                    <aside class="recepcion-resumenes__imagenes" aria-label="Imágenes de la convocatoria">
+                                        <img class="recepcion-resumenes__flyer"
+                                             src="./Semana_geofisica_VI_files/recepcion_resumenes_flyer.png"
+                                             alt="Convocatoria para presentar investigaciones en la VI Semana de la Geofísica">
+                                        <img class="recepcion-resumenes__flyer"
+                                             src="./Semana_geofisica_VI_files/recepcion_resumenes_poster.png"
+                                             alt="Presentación de un póster científico durante la Semana de la Geofísica">
+                                    </aside>
                                 </div>
                             </article>
 
