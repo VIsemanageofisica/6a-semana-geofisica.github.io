@@ -947,9 +947,25 @@
 
     #comite-organizador > .evenz-row > .evenz-col {
       float: none;
-      flex: 0 1 400px;
-      width: 100%;
-      max-width: 400px;
+      flex: 0 0 25%;
+      width: 25%;
+      max-width: 25%;
+    }
+
+    @media only screen and (max-width: 992px) {
+      #comite-organizador > .evenz-row > .evenz-col {
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 50%;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      #comite-organizador > .evenz-row > .evenz-col {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 100%;
+      }
     }
 
     /* Keep every committee social icon centered inside its circular border. */
