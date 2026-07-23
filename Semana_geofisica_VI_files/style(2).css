@@ -529,3 +529,24 @@ html {
     margin-top: -120px;
     visibility: hidden;
 }
+
+/* Solid blue circles beside the event benefits list on every page. */
+.evenz-herolist p > .evenz-btn.evenz-btn__r {
+    display: inline-flex !important;
+    flex: 0 0 32px;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    background: #00629b !important;
+    border: 1px solid #00629b !important;
+    border-radius: 50% !important;
+    box-sizing: border-box;
+    color: transparent !important;
+    vertical-align: middle;
+}
+
+.evenz-herolist p > .evenz-btn.evenz-btn__r .material-icons {
+    display: none !important;
+}
