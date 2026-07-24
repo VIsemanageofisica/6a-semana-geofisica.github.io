@@ -1438,15 +1438,106 @@ html {
               </div>
             </div>
           </div>
-          <section aria-labelledby="apoyo-estudiantes-titulo" style="padding:60px 20px 80px; text-align:center;">
-            <div class="evenz-container" style="max-width:1000px;">
-              <h2 id="apoyo-estudiantes-titulo" class="evenz-element-caption evenz-caption evenz-caption__xl evenz-caption__c" style="margin:0 auto 24px;">
+          <style>
+            .apoyo-convocatoria { padding:60px 20px 80px; }
+            .apoyo-convocatoria__contenedor { max-width:1200px; margin:0 auto; }
+            .apoyo-convocatoria__titulo { margin:0 auto 42px !important; text-align:center; }
+            .apoyo-convocatoria__grid { display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 390px); gap:54px; align-items:start; }
+            .apoyo-convocatoria__contenido { color:#333; font-size:17px; line-height:1.7; }
+            .apoyo-convocatoria__contenido h3 { margin:0 0 20px; color:#062d59; font-size:30px; line-height:1.2; }
+            .apoyo-convocatoria__contenido h4 { margin:32px 0 16px; color:#062d59; font-size:23px; }
+            .apoyo-convocatoria__contenido p { margin:0 0 17px; }
+            .apoyo-convocatoria__item { display:grid; grid-template-columns:34px minmax(0, 1fr); gap:10px; margin-bottom:18px; }
+            .apoyo-convocatoria__icono { font-size:25px; line-height:1.35; }
+            .apoyo-convocatoria__item p { margin:0; }
+            .apoyo-convocatoria__fecha { margin:20px 0 0 !important; padding:16px 20px; border-left:5px solid #ff4d19; background:#fff4e9; color:#062d59; font-size:21px; }
+            .apoyo-convocatoria__flyer { display:block; width:100%; max-width:390px; height:auto; justify-self:end; box-shadow:0 8px 24px rgba(0, 0, 0, .14); }
+            @media (max-width:900px) {
+              .apoyo-convocatoria__grid { grid-template-columns:1fr; }
+              .apoyo-convocatoria__flyer { justify-self:center; grid-row:2; }
+            }
+            @media (max-width:520px) {
+              .apoyo-convocatoria { padding-right:10px; padding-left:10px; }
+              .apoyo-convocatoria__contenido h3 { font-size:25px; }
+            }
+          </style>
+
+          <section class="apoyo-convocatoria" aria-labelledby="apoyo-estudiantes-titulo">
+            <div class="apoyo-convocatoria__contenedor">
+              <h2 id="apoyo-estudiantes-titulo" class="apoyo-convocatoria__titulo evenz-element-caption evenz-caption evenz-caption__xl evenz-caption__c">
                 <span>Apoyo a estudiantes</span>
               </h2>
-              <p style="max-width:850px; margin:0 auto 40px; font-size:1.15rem; line-height:1.7;">
-                La VI Semana de la Geofísica brindará apoyo económico a estudiantes de pregrado que requieran ayuda para movilizarse hasta Bucaramanga y participar presencialmente en las actividades académicas y científicas del evento.
-              </p>
-              <img src="./Semana_geofisica_VI_files/apoyo_estudiantes.png" width="1080" height="1350" alt="Convocatoria de apoyo económico para estudiantes de pregrado que asistirán a la VI Semana de la Geofísica" style="display:block; width:100%; max-width:900px; height:auto; margin:0 auto;">
+
+              <div class="apoyo-convocatoria__grid">
+                <div class="apoyo-convocatoria__contenido">
+                  <h3>Convocatoria de apoyo para estudiantes de pregrado</h3>
+
+                  <p>La <strong>VI Semana de la Geofísica</strong> invita a estudiantes de pregrado de universidades e instituciones de educación superior de todo Colombia a postularse para recibir un <strong>apoyo económico que facilite su participación presencial en el evento</strong>.</p>
+
+                  <p>Esta iniciativa busca promover la participación de estudiantes interesados en la geofísica, la geología, las geociencias y áreas relacionadas, fortaleciendo su formación mediante el intercambio de conocimientos con investigadores, profesionales y otros estudiantes del país.</p>
+
+                  <p>El evento se realizará del <strong>3 al 7 de noviembre de 2026</strong> en la <strong>Universidad Industrial de Santander</strong>, en Bucaramanga.</p>
+
+                  <h4>¿A quién está dirigida la convocatoria?</h4>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">🎓</span>
+                    <p><strong>Estudiantes de pregrado</strong><br>La convocatoria está dirigida a estudiantes activos de programas universitarios de cualquier institución de educación superior del país.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">🌎</span>
+                    <p><strong>Participantes de diferentes regiones de Colombia</strong><br>Podrán postularse estudiantes que requieran apoyo económico para trasladarse y participar presencialmente en la VI Semana de la Geofísica.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">🔬</span>
+                    <p><strong>Interés en las geociencias</strong><br>Se invita especialmente a estudiantes de geología, geofísica, ingeniería, ciencias de la Tierra y otras áreas relacionadas con las temáticas del evento.</p>
+                  </div>
+
+                  <p>Los requisitos específicos, los criterios de selección y el alcance del apoyo económico se encuentran detallados en el formulario de inscripción.</p>
+
+                  <h4>¿Por qué participar?</h4>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">📚</span>
+                    <p><strong>Fortalece tu formación académica</strong><br>Conoce investigaciones, metodologías y tecnologías emergentes aplicadas a las geociencias.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">🤝</span>
+                    <p><strong>Conecta con la comunidad científica</strong><br>Interactúa con estudiantes, docentes, investigadores y profesionales de diferentes instituciones.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">🗣️</span>
+                    <p><strong>Participa en un evento nacional</strong><br>Vive una experiencia presencial de intercambio académico en la Universidad Industrial de Santander.</p>
+                  </div>
+
+                  <h4>¿Cómo postularte?</h4>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">📝</span>
+                    <p><strong>1. Completa el formulario</strong><br>Registra tus datos personales, académicos y la información solicitada para participar en la convocatoria.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">📄</span>
+                    <p><strong>2. Adjunta los documentos requeridos</strong><br>Verifica cuidadosamente los requisitos indicados en el formulario antes de enviar tu postulación.</p>
+                  </div>
+
+                  <div class="apoyo-convocatoria__item">
+                    <span class="apoyo-convocatoria__icono" aria-hidden="true">📤</span>
+                    <p><strong>3. Envía tu solicitud antes del cierre</strong><br>Las postulaciones deberán realizarse hasta el:</p>
+                  </div>
+
+                  <p class="apoyo-convocatoria__fecha"><strong>Jueves 8 de octubre de 2026</strong></p>
+                </div>
+
+                <img class="apoyo-convocatoria__flyer"
+                     src="./Semana_geofisica_VI_files/apoyo_estudiantes_flyer_2026.png"
+                     alt="Convocatoria de apoyo económico para estudiantes de pregrado que asistirán a la VI Semana de la Geofísica">
+              </div>
             </div>
           </section>
         </div>
