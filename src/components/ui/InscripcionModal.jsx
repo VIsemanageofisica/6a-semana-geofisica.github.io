@@ -8,6 +8,7 @@ const TEMPLATE_ASISTENTE = import.meta.env.VITE_EMAILJS_TEMPLATE_ASISTENTE_ID
 const TEMPLATE_ORGANIZADOR = import.meta.env.VITE_EMAILJS_TEMPLATE_ORGANIZADOR_ID
 const ORGANIZADOR_EMAIL =
   import.meta.env.VITE_EMAILJS_ORGANIZADOR_EMAIL || '6a.semana.geofisica@gmail.com'
+const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL
 
 const NIVEL_OPTIONS = [
   'Estudiante de pregrado',
@@ -165,6 +166,13 @@ const InscripcionModal = ({ open, onClose }) => {
         { ...params, to_email: ORGANIZADOR_EMAIL },
         { publicKey: PUBLIC_KEY },
       )
+      if (APPS_SCRIPT_URL) {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(params),
+        }).catch(() => {})
+      }
       setStatus('success')
     } catch (error) {
       console.error('Error al enviar la inscripción:', error)
