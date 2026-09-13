@@ -1,5 +1,12 @@
 import AnaC from '../assets/team/Ana_Beatriz.avif'
 import AnaA from '../assets/team/Ana_Celina.avif'
+import HenryA from '../assets/team/HenryA.avif'
+import AnaM from '../assets/team/Ana_Mantilla.avif'
+import DanielaQ from '../assets/team/Daniela_Quintero.avif'
+import JoseB from '../assets/team/Jose_Barrios.avif'
+import MariaP from '../assets/team/Maria_Bohorquez.avif'
+import PaulG from '../assets/team/Paul_Goyes.avif'
+import SaitK from '../assets/team/Sait_Khurama.avif'
 
 export const teamMembers = [
     {
@@ -7,49 +14,49 @@ export const teamMembers = [
         comite: "Comite Organizador",
         name: "Ana Mantilla",
         linkedin: "linkedin.com/in/ana-gabriela-mantilla-24377a21a",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQHtLwA-vJ696w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704840494668?e=1788998400&v=beta&t=CD-17E8M7JmudNQjGu_6bzkYsIhKW9GE0i2X_YggyfU"
+        imagen: AnaM
     },
     {
         id: 2,
         comite: "Comite Organizador",
         name: "Daniela Quintero",
         linkedin: "https://www.linkedin.com/in/geodanielaquintero/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQEazumSWEnVxQ/profile-displayphoto-scale_400_400/B4EZl5_h0WHgAg-/0/1758688322357?e=1788998400&v=beta&t=LeMGk2rEqTPk28P50WK4nmuU_izanZ_8tH6Rn-kPU8Q"
+        imagen: DanielaQ
     },
     {
         id: 3,
         comite: "Comite de Apoyo",
         name: "Paul Goyes",
         linkedin: "https://www.linkedin.com/in/paul-goyes-0212b810/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQHn5-ABclpYHw/profile-displayphoto-scale_400_400/B4EZ_eaoKuJYAk-/0/1786142952851?e=1788998400&v=beta&t=df0RJrsHxDJxZN0rTGB25h8kNqqUjg3SxV2VWwKTck0"
+        imagen: PaulG
     },
     {
         id: 4,
         comite: "Comite de Apoyo",
         name: "Jose Barrios",
         linkedin: "https://www.linkedin.com/in/jose-alejandro-barrios-pico-b592a5361/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQEgi-hx659Qkw/profile-displayphoto-scale_400_400/B4EZvJnln5HoAg-/0/1768614161510?e=1788998400&v=beta&t=BcJ8pMtceoA4m58R8h20iReRAqNtOl3ordU33kGYlc0"
+        imagen: JoseB
     },
     {
         id: 5,
         comite: "Comite de Apoyo",
         name: "María Paula Bohórquez",
         linkedin: "https://www.linkedin.com/in/mariapaula-bohorquez/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQGCbzp0cce0OQ/profile-displayphoto-scale_400_400/B4EZ.M6t_7KIAg-/0/1784775633215?e=1788998400&v=beta&t=x5enI6IhcBNzQfd7R0qJhxP6EZxVUlp3wdTtbCqLQCg"
+        imagen: MariaP
     },
     {
         id: 6,
         comite: "Comite Cientifico",
         name: "Henry Arguello",
         linkedin: "https://www.linkedin.com/in/henry-arguello-2905929/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQHceh54hye3-w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1690764401985?e=1788998400&v=beta&t=mFLRK-v4BHWhlIb7jVRXfWNGE7Z7-thIz190PTu0usQ"
+        imagen: HenryA
     },
     {
         id: 7,
         comite: "Comite Cientifico",
         name: "Sait Khurama",
         linkedin: "https://www.linkedin.com/in/saitkhurama/",
-        imagen: "https://media.licdn.com/dms/image/v2/D4E03AQE35Gks10v21g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1699078324335?e=1788998400&v=beta&t=CJ14fg3adxU_R3TeUrjv6erR94jIFNVi-eyQM8Mw0OE"
+        imagen: SaitK
     },
     {
         id: 8,
