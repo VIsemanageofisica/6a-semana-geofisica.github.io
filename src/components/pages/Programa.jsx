@@ -3,7 +3,6 @@ import { useScrollReveal, useStaggeredReveal } from '../../hooks/useScrollReveal
 import { TextReveal } from '../ui/TextReveal.jsx';
 import Video from '../static/VideoHero.jsx';
 import Hero from '../static/Hero.jsx';
-import Button from '../ui/Button.jsx';
 import { DataPages } from '../../data/Vistas.js';
 import Proxima from '../ui/Proximamente.jsx';
 
@@ -28,14 +27,6 @@ const Programa = () => {
   return (
     <div>
       <Hero titulo={tituloPrograma}>
-        <Button className="w-full sm:w-auto sm:mr-12" onClick={() => console.log('Ir a subir resumen')}>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform" target="_blank" rel="noopener noreferrer">SUBE TU RESUMEN</a>
-        </Button>
-        <Button
-          className="w-full sm:w-auto border sm:ml-12 border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-none backdrop-blur-sm hover:border-gold-400 hover:text-gold-400"
-        >
-          <a href="https://www.instagram.com/semana_geofisica/" target="_blank" rel="noopener noreferrer">NOTICIAS Y ACTUALIZACIONES</a>
-        </Button>
       </Hero>
 
       <section className="bg-slate-50/50 px-4 py-16 sm:px-6 md:py-24 lg:px-8">

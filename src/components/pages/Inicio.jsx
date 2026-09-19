@@ -31,11 +31,15 @@ const Inicio = () => {
   // Filtramos la data de los miembros del equipo
   const comiteOrganizador = teamMembers.filter(m => m.comite === "Comite Organizador");
   const comiteApoyo = teamMembers.filter(m => m.comite === "Comite de Apoyo");
+
+  // Filtro de comite admonostrativo
+  const comiteAdministrativo = teamMembers.filter(m => m.comite === "Comite Administrativo");
   
-  // Agrupamos el Científico y Administrativo
-  const comiteCientificoYAdmin = teamMembers.filter(
-    m => m.comite === "Comite Cientifico" || m.comite === "Comite Administrativo"
-  );
+  // Agrupamos el Científico
+  const comiteCientificoYAdmin = teamMembers.filter(m => m.comite === "Comite Cientifico");
+
+  //Filtro de comite de desarrollo web
+  const comiteDesarrolloWeb = teamMembers.filter(m => m.comite === "Comite de Desarrollo Web");
 
   // Scroll reveal refs
   const [teamTitleRef, teamTitleVisible] = useScrollReveal({ margin: '-100px' });
@@ -51,18 +55,6 @@ const Inicio = () => {
     <div>
       {/* Sección del banner principal (Ahora estandarizado con botones) */}
       <Hero titulo={tituloInicio}>
-          <Button
-            className="w-full sm:w-auto sm:mr-12"
-            onClick={() => console.log('Ir a subir resumen')}
-          >
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform" target="_blank" rel="noopener noreferrer">SUBE TU RESUMEN</a>
-          </Button>
-
-            <Button 
-                className="w-full sm:w-auto border sm:ml-12 border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-none backdrop-blur-sm hover:border-gold-400 hover:text-gold-400"
-            >
-                <a href="https://www.instagram.com/semana_geofisica/" target="_blank" rel="noopener noreferrer">NOTICIAS Y ACTUALIZACIONES</a>
-          </Button>
       </Hero>
       
       {/* Sección de información y descripción del evento */}
@@ -161,7 +153,38 @@ const Inicio = () => {
             </div>
           </motion.div>
 
-          {/* 3. COMITÉS CIENTÍFICO Y ADMINISTRATIVO */}
+          {/* 3. COMITÉS ADMINISTRATIVO */}
+          <motion.div
+            ref={cientificoTitleRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={cientificoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="mb-16"
+          >
+            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
+              Comité Administrativo
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
+              {comiteAdministrativo.map((miembro, index) => (
+                <motion.div
+                  ref={cientificoRefs(index)}
+                  key={miembro.id}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={cientificoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  <Card 
+                    name={miembro.name}
+                    role={miembro.comite} 
+                    avatarImg={miembro.imagen}
+                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 4. COMITÉS CIENTÍFICO */}
           <motion.div
             ref={cientificoTitleRef}
             initial={{ opacity: 0, y: 20 }}
@@ -174,6 +197,37 @@ const Inicio = () => {
             </h3>
             <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
               {comiteCientificoYAdmin.map((miembro, index) => (
+                <motion.div
+                  ref={cientificoRefs(index)}
+                  key={miembro.id}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={cientificoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  <Card 
+                    name={miembro.name}
+                    role={miembro.comite} 
+                    avatarImg={miembro.imagen}
+                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 5. COMITÉS DE DESARROLLO WEB */}
+          <motion.div
+            ref={cientificoTitleRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={cientificoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            className="mb-16"
+          >
+            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
+              Comité de Desarrollo Web
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
+              {comiteDesarrolloWeb.map((miembro, index) => (
                 <motion.div
                   ref={cientificoRefs(index)}
                   key={miembro.id}

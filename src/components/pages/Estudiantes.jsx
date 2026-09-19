@@ -31,7 +31,7 @@ const Estudiantes = () => {
     <div>
       <Hero titulo={tituloEstudiantes}>
         <Button className="w-full sm:w-auto sm:mr-12" onClick={() => console.log('Ir a subir resumen')}>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform" target="_blank" rel="noopener noreferrer">SUBE TU RESUMEN</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScVx10Ku4oKmLHurQv4yVLluSk_LNAgbnRzJQwzVIoyUMELBQ/viewform" target="_blank" rel="noopener noreferrer">TE APOYAMOS!!</a>
         </Button>
         <Button
           className="w-full sm:w-auto border sm:ml-12 border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-none backdrop-blur-sm hover:border-gold-400 hover:text-gold-400"

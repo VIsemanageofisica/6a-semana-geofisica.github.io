@@ -7,6 +7,7 @@ import JoseB from '../assets/team/Jose_Barrios.avif'
 import MariaP from '../assets/team/Maria_Bohorquez.avif'
 import PaulG from '../assets/team/Paul_Goyes.avif'
 import SaitK from '../assets/team/Sait_Khurama.avif'
+import DavidZ from '../assets/team/David_Zapata.avif'
 
 export const teamMembers = [
     {
@@ -71,5 +72,12 @@ export const teamMembers = [
         name: "Ana Celina",
         linkedin: "",
         imagen: AnaA
+    },
+    {
+        id: 10,
+        comite: "Comite de Desarrollo Web",
+        name: "David Zapata",
+        linkedin: "https://www.linkedin.com/in/david-zapata-68486a274/",
+        imagen: DavidZ
     }
 ]

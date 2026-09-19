@@ -25,7 +25,7 @@ const Registro = () => {
               className="w-full sm:w-auto sm:mr-12"
               onClick={() => console.log('Ir a subir resumen')}
             >
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform" target="_blank" rel="noopener noreferrer">SUBE TU RESUMEN</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform" target="_blank" rel="noopener noreferrer">INSCRIBETE AHORA</a>
             </Button>
 
             <Button 
