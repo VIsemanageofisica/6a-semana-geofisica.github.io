@@ -33,7 +33,11 @@ const initialForm = {
   poster: '',
   enterado: '',
   comentarios: '',
+  website: '',
 }
+
+// Anti-spam: mínimo de segundos entre envíos desde un mismo navegador.
+const MIN_SUBMIT_INTERVAL_MS = 5000
 
 const inputClass =
   'w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30'
@@ -81,6 +85,7 @@ const InscripcionModal = ({ open, onClose }) => {
 
   const panelRef = useRef(null)
   const previousFocus = useRef(null)
+  const lastSubmitRef = useRef(0)
 
   const handleClose = useCallback(() => {
     document.body.style.overflow = ''
@@ -136,11 +141,26 @@ const InscripcionModal = ({ open, onClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    // Anti-spam: los bots que rellenan campos ocultos se descartan silenciosamente.
+    if (form.website) {
+      setStatus('success')
+      return
+    }
+
     const nextErrors = validate()
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors)
       return
     }
+
+    // Anti-spam: limita la frecuencia de envíos desde un mismo navegador.
+    // Se evalúa después de validar para no bloquear la corrección de errores.
+    const now = Date.now()
+    if (now - lastSubmitRef.current < MIN_SUBMIT_INTERVAL_MS) {
+      return
+    }
+    lastSubmitRef.current = now
 
     const nivelFinal = form.nivel === 'Otros' ? form.nivelOtro.trim() : form.nivel
 
@@ -271,6 +291,19 @@ const InscripcionModal = ({ open, onClose }) => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="px-6 py-6 sm:px-8">
+                {/* Honeypot: campo oculto para detectar bots. No debe ser visible ni enfocable. */}
+                <div className="absolute left-[-9999px] top-auto" aria-hidden="true">
+                  <label htmlFor="hp-website">No llenar este campo</label>
+                  <input
+                    id="hp-website"
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={setField('website')}
+                  />
+                </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="sm:col-span-2">
                     <Field label="Nombre completo" required error={errors.nombre}>

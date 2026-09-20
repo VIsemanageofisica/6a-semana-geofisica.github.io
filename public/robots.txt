@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://semanadelageofisica/sitemap.xml
+Sitemap: https://semanadelageofisica.com/sitemap.xml

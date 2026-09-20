@@ -6,40 +6,39 @@ import AcercaDelEvento from '../ui/AcercaDelEvento.jsx';
 import Card from '../ui/Card.jsx';
 import { teamMembers } from '../../data/Personal.js';
 import VideoHero from '../static/VideoHero.jsx';
-import Button from '../ui/Button.jsx';
 import { DataPages } from '../../data/Vistas.js';
 
-const stats = [
-  { value: 6, suffix: 'ta', label: 'Edición' },
-  { value: 5, suffix: ' días', label: 'De conferencias' },
-  { value: 200, suffix: '+', label: 'Asistentes' },
-  { value: 30, suffix: '+', label: 'Ponentes' },
-];
 
 const Inicio = () => {
 
-  // Función segura para abrir LinkedIn
+  // Función segura para abrir LinkedIn: solo permite https y el dominio de LinkedIn.
   const abrirLinkedIn = (url) => {
     if (!url) return;
-    const enlaceSeguro = url.startsWith('http') ? url : `https://${url}`;
-    window.open(enlaceSeguro, '_blank', 'noopener,noreferrer');
+    try {
+      const enlace = new URL(url.startsWith('http') ? url : `https://${url}`);
+      if (enlace.protocol !== 'https:') return;
+      if (!/^(www\.)?linkedin\.com$/.test(enlace.hostname)) return;
+      window.open(enlace.href, '_blank', 'noopener,noreferrer');
+    } catch {
+      return;
+    }
   };
 
   // Obtenemos el título de la página de inicio desde Vistas.js (id: 1)
   const tituloInicio = DataPages.find(page => page.id === 1)?.titleHero || "VI Semana de la Geofísica";
 
   // Filtramos la data de los miembros del equipo
-  const comiteOrganizador = teamMembers.filter(m => m.comite === "Comite Organizador");
-  const comiteApoyo = teamMembers.filter(m => m.comite === "Comite de Apoyo");
+  const comiteOrganizador = teamMembers.filter(m => m.comite === "Comité Organizador");
+  const comiteApoyo = teamMembers.filter(m => m.comite === "Comité de Apoyo");
 
   // Filtro de comite admonostrativo
-  const comiteAdministrativo = teamMembers.filter(m => m.comite === "Comite Administrativo");
+  const comiteAdministrativo = teamMembers.filter(m => m.comite === "Comité Administrativo");
   
   // Agrupamos el Científico
-  const comiteCientificoYAdmin = teamMembers.filter(m => m.comite === "Comite Cientifico");
+  const comiteCientificoYAdmin = teamMembers.filter(m => m.comite === "Comité Cientifico");
 
   //Filtro de comite de desarrollo web
-  const comiteDesarrolloWeb = teamMembers.filter(m => m.comite === "Comite de Desarrollo Web");
+  const comiteDesarrolloWeb = teamMembers.filter(m => m.comite === "Comité de Desarrollo Web");
 
   // Scroll reveal refs
   const [teamTitleRef, teamTitleVisible] = useScrollReveal({ margin: '-100px' });
@@ -193,7 +192,7 @@ const Inicio = () => {
             className="mb-16"
           >
             <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité Científico y Administrativo
+              Comité Científico
             </h3>
             <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
               {comiteCientificoYAdmin.map((miembro, index) => (

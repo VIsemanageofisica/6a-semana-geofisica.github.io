@@ -12,70 +12,70 @@ import DavidZ from '../assets/team/David_Zapata.avif'
 export const teamMembers = [
     {
         id: 1,
-        comite: "Comite Organizador",
+        comite: "Comité Organizador",
         name: "Ana Mantilla",
         linkedin: "linkedin.com/in/ana-gabriela-mantilla-24377a21a",
         imagen: AnaM
     },
     {
         id: 2,
-        comite: "Comite Organizador",
+        comite: "Comité Organizador",
         name: "Daniela Quintero",
         linkedin: "https://www.linkedin.com/in/geodanielaquintero/",
         imagen: DanielaQ
     },
     {
         id: 3,
-        comite: "Comite de Apoyo",
+        comite: "Comité de Apoyo",
         name: "Paul Goyes",
         linkedin: "https://www.linkedin.com/in/paul-goyes-0212b810/",
         imagen: PaulG
     },
     {
         id: 4,
-        comite: "Comite de Apoyo",
+        comite: "Comité de Apoyo",
         name: "Jose Barrios",
         linkedin: "https://www.linkedin.com/in/jose-alejandro-barrios-pico-b592a5361/",
         imagen: JoseB
     },
     {
         id: 5,
-        comite: "Comite de Apoyo",
+        comite: "Comité de Apoyo",
         name: "María Paula Bohórquez",
         linkedin: "https://www.linkedin.com/in/mariapaula-bohorquez/",
         imagen: MariaP
     },
     {
         id: 6,
-        comite: "Comite Cientifico",
+        comite: "Comité Cientifico",
         name: "Henry Arguello",
         linkedin: "https://www.linkedin.com/in/henry-arguello-2905929/",
         imagen: HenryA
     },
     {
         id: 7,
-        comite: "Comite Cientifico",
+        comite: "Comité Cientifico",
         name: "Sait Khurama",
         linkedin: "https://www.linkedin.com/in/saitkhurama/",
         imagen: SaitK
     },
     {
         id: 8,
-        comite: "Comite Cientifico",
+        comite: "Comité Cientifico",
         name: "Ana Beatriz",
         linkedin: "",
         imagen: AnaC
     },
     {
         id: 9,
-        comite: "Comite Administrativo",
+        comite: "Comité Administrativo",
         name: "Ana Celina",
         linkedin: "",
         imagen: AnaA
     },
     {
         id: 10,
-        comite: "Comite de Desarrollo Web",
+        comite: "Comité de Desarrollo Web",
         name: "David Zapata",
         linkedin: "https://www.linkedin.com/in/david-zapata-68486a274/",
         imagen: DavidZ
