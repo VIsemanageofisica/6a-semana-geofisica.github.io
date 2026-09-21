@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useScrollReveal, useStaggeredReveal } from '../../hooks/useScrollReveal.js';
+import { useScrollReveal } from '../../hooks/useScrollReveal.js';
 import { TextReveal } from '../ui/TextReveal.jsx';
 import Hero from '../static/Hero.jsx';
 import { DataPages } from '../../data/Vistas.js';
@@ -10,6 +10,7 @@ import OptimizedImage from '../ui/OptimizedImage.jsx';
 import Recepcion1 from '../../assets/flyers/recepcion_resumenes_2026.avif';
 import Recepcion2 from '../../assets/flyers/recepcion_resumenes_poster.avif';
 import Recepcion3 from '../../assets/flyers/recepcion_resumenes_posters_evento.avif';
+import FeaturesCards from '../ui/FeaturesCards.jsx';
 
 const tituloResumenes = DataPages.find(page => page.id === 10)?.titleHero;
 
@@ -48,7 +49,6 @@ const Resumenes = () => {
   const [quoteRef, quoteVisible] = useScrollReveal({ margin: '-100px' });
   const [titleRef, titleVisible] = useScrollReveal({ margin: '-100px' });
   const [descRef, descVisible] = useScrollReveal({ margin: '-100px' });
-  const [microRefs, microVisible] = useStaggeredReveal(4);
   const [leftRef, leftVisible] = useScrollReveal({ margin: '-80px' });
   const [rightRef, rightVisible] = useScrollReveal({ margin: '-80px' });
 
@@ -107,29 +107,7 @@ const Resumenes = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {microCardData.map((item, i) => (
-              <motion.div
-                key={item.title}
-                ref={microRefs(i)}
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                animate={microVisible[i] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
-                className="group relative flex flex-col items-center overflow-hidden rounded-2xl bg-white p-8 text-center shadow-md ring-1 ring-slate-100 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold-500/20"
-              >
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-600 to-gold-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <motion.div
-                  whileHover={{ rotate: i % 2 === 0 ? -6 : 6, scale: 1.1, transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } }}
-                  className="mb-6 flex h-[80px] w-[80px] items-center justify-center rounded-2xl bg-gold-50 text-gold-600 shadow-sm transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-gold-400 group-hover:to-gold-600 group-hover:text-white"
-                >
-                  <svg className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                  </svg>
-                </motion.div>
-                <h3 className="font-['Montserrat'] text-lg font-bold text-slate-800 transition-colors duration-300 group-hover:text-brand-700">{item.title}</h3>
-              </motion.div>
-            ))}
-          </div>
+          <FeaturesCards/>
         </div>
       </section>
 

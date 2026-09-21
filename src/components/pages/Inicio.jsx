@@ -9,6 +9,45 @@ import VideoHero from '../static/VideoHero.jsx';
 import { DataPages } from '../../data/Vistas.js';
 
 
+const ComiteGrupo = ({ titulo, miembros, onMiembroClick }) => {
+  const [tituloRef, tituloVisible] = useScrollReveal({ margin: '-80px' });
+  const [cardRefs, cardVisible] = useStaggeredReveal(miembros.length);
+
+  if (miembros.length === 0) return null;
+
+  return (
+    <motion.div
+      ref={tituloRef}
+      initial={{ opacity: 0, y: 20 }}
+      animate={tituloVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+      className="mb-16"
+    >
+      <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
+        {titulo}
+      </h3>
+      <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
+        {miembros.map((miembro, index) => (
+          <motion.div
+            ref={cardRefs(index)}
+            key={miembro.id}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={cardVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
+            transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
+          >
+            <Card
+              name={miembro.name}
+              role={miembro.comite}
+              avatarImg={miembro.imagen}
+              onBtn1Click={() => onMiembroClick(miembro.linkedin)}
+            />
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 const Inicio = () => {
 
   // Función segura para abrir LinkedIn: solo permite https y el dominio de LinkedIn.
@@ -42,13 +81,6 @@ const Inicio = () => {
 
   // Scroll reveal refs
   const [teamTitleRef, teamTitleVisible] = useScrollReveal({ margin: '-100px' });
-  const [orgTitleRef, orgTitleVisible] = useScrollReveal({ margin: '-100px' });
-  const [apoyoTitleRef, apoyoTitleVisible] = useScrollReveal({ margin: '-100px' });
-  const [cientificoTitleRef, cientificoTitleVisible] = useScrollReveal({ margin: '-100px' });
-
-  const [orgRefs, orgVisible] = useStaggeredReveal(comiteOrganizador.length);
-  const [apoyoRefs, apoyoVisible] = useStaggeredReveal(comiteApoyo.length);
-  const [cientificoRefs, cientificoVisible] = useStaggeredReveal(comiteCientificoYAdmin.length);
 
   return (
     <div>
@@ -90,160 +122,15 @@ const Inicio = () => {
             />
           </motion.div>
 
-          {/* 1. COMITÉ ORGANIZADOR */}
-          <motion.div
-            ref={orgTitleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={orgTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-16"
-          >
-            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité Organizador
-            </h3>
-            <div className="flex flex-wrap justify-center gap-8">
-              {comiteOrganizador.map((miembro, index) => (
-                <motion.div
-                  ref={orgRefs(index)}
-                  key={miembro.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={orgVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <Card 
-                    name={miembro.name}
-                    role={miembro.comite}
-                    avatarImg={miembro.imagen}
-                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <ComiteGrupo titulo="Comité Organizador" miembros={comiteOrganizador} onMiembroClick={abrirLinkedIn} />
 
-          {/* 2. COMITÉ DE APOYO */}
-          <motion.div
-            ref={apoyoTitleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={apoyoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-16"
-          >
-            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité de Apoyo
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
-              {comiteApoyo.map((miembro, index) => (
-                <motion.div
-                  ref={apoyoRefs(index)}
-                  key={miembro.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={apoyoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <Card 
-                    name={miembro.name}
-                    role={miembro.comite}
-                    avatarImg={miembro.imagen}
-                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <ComiteGrupo titulo="Comité de Apoyo" miembros={comiteApoyo} onMiembroClick={abrirLinkedIn} />
 
-          {/* 3. COMITÉS ADMINISTRATIVO */}
-          <motion.div
-            ref={cientificoTitleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={cientificoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-16"
-          >
-            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité Administrativo
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
-              {comiteAdministrativo.map((miembro, index) => (
-                <motion.div
-                  ref={cientificoRefs(index)}
-                  key={miembro.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={cientificoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <Card 
-                    name={miembro.name}
-                    role={miembro.comite} 
-                    avatarImg={miembro.imagen}
-                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <ComiteGrupo titulo="Comité Administrativo" miembros={comiteAdministrativo} onMiembroClick={abrirLinkedIn} />
 
-          {/* 4. COMITÉS CIENTÍFICO */}
-          <motion.div
-            ref={cientificoTitleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={cientificoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-16"
-          >
-            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité Científico
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
-              {comiteCientificoYAdmin.map((miembro, index) => (
-                <motion.div
-                  ref={cientificoRefs(index)}
-                  key={miembro.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={cientificoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <Card 
-                    name={miembro.name}
-                    role={miembro.comite} 
-                    avatarImg={miembro.imagen}
-                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <ComiteGrupo titulo="Comité Científico" miembros={comiteCientificoYAdmin} onMiembroClick={abrirLinkedIn} />
 
-          {/* 5. COMITÉS DE DESARROLLO WEB */}
-          <motion.div
-            ref={cientificoTitleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={cientificoTitleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-16"
-          >
-            <h3 className="mb-8 text-center font-['Montserrat'] text-xl font-semibold text-brand-800">
-              Comité de Desarrollo Web
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6 xl:gap-8">
-              {comiteDesarrolloWeb.map((miembro, index) => (
-                <motion.div
-                  ref={cientificoRefs(index)}
-                  key={miembro.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={cientificoVisible[index] ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <Card 
-                    name={miembro.name}
-                    role={miembro.comite} 
-                    avatarImg={miembro.imagen}
-                    onBtn1Click={() => abrirLinkedIn(miembro.linkedin)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <ComiteGrupo titulo="Comité de Desarrollo Web" miembros={comiteDesarrolloWeb} onMiembroClick={abrirLinkedIn} />
 
         </div>
       </section>
