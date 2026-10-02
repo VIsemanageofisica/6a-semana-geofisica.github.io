@@ -5,7 +5,10 @@ import FeaturesCards from '../ui/FeaturesCards.jsx';
 import Video from '../static/VideoHero.jsx';
 import Hero from '../static/Hero.jsx';
 import { DataPages } from '../../data/Vistas.js';
-import Proxima from '../ui/Proximamente.jsx';
+// Panel de espera oculto mientras haya eventos publicados
+// import Proxima from '../ui/Proximamente.jsx';
+import EventosGrid from '../ui/EventosGrid.jsx';
+import { Talleres } from '../../data/Talleres.js';
 
 const tituloCursos = DataPages.find(page => page.id === 5)?.titleHero;
 
@@ -49,18 +52,36 @@ const Cursos = () => {
             <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-gold-400 sm:w-32" />
           </motion.div>
 
+          {/* Invitación a participar de los eventos */}
           <motion.div
             ref={descRef}
             initial={{ opacity: 0, y: 20 }}
             animate={descVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-10 flex flex-col items-center justify-center text-center"
+            className="mb-12 flex flex-col items-center justify-center text-center"
           >
-            <h5 className="mb-5 font-['Montserrat'] text-xl font-bold tracking-widest text-slate-900 sm:text-2xl">
-              Programa de Conferencia
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-gold-400/10 px-4 py-1.5 font-['Montserrat'] text-xs font-semibold uppercase tracking-widest text-gold-600">
+              <span className="h-2 w-2 rounded-full bg-gold-500" />
+              Cursos y Talleres
+            </span>
+            <h5 className="mb-5 max-w-3xl font-['Montserrat'] text-xl font-bold tracking-wide text-slate-900 sm:text-2xl md:text-3xl">
+              Te invitamos a participar de los talleres que tenemos para ti
             </h5>
-            <Proxima id={2} />
+            <p className="mb-4 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
+              Durante la VI Semana de la Geofísica tendremos espacios prácticos guiados por expertos, pensados para que fortalezcas tus conocimientos y aprendas nuevas herramientas del área.
+            </p>
+            <p className="font-['Montserrat'] text-sm font-medium text-slate-500">
+              Pasa el cursor sobre cada tarjeta para conocer cada taller y haz clic para ver los detalles e inscribirte.
+            </p>
+
+            {/* Panel de espera oculto mientras haya eventos publicados */}
+            {/* <Proxima id={2} /> */}
           </motion.div>
+
+          {/* Tarjetas de los eventos */}
+          <div className="mb-20">
+            <EventosGrid eventos={Talleres} tipo="Curso-Taller" proximoId={2} />
+          </div>
 
           <FeaturesCards/>
         </div>

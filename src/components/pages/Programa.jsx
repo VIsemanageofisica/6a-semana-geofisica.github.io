@@ -4,7 +4,18 @@ import { TextReveal } from '../ui/TextReveal.jsx';
 import Video from '../static/VideoHero.jsx';
 import Hero from '../static/Hero.jsx';
 import { DataPages } from '../../data/Vistas.js';
-import Proxima from '../ui/Proximamente.jsx';
+// Panel de espera oculto mientras haya eventos publicados
+// import Proxima from '../ui/Proximamente.jsx';
+import EventosGrid from '../ui/EventosGrid.jsx';
+import { Charlas } from '../../data/Charlas.js';
+import { Paneles } from '../../data/Paneles.js';
+
+// Íconos de fecha, hora y lugar para los paneles
+const ICONOS_PANEL = {
+  fecha: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5',
+  hora: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+  lugar: 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z',
+};
 
 const tituloPrograma = DataPages.find(page => page.id === 4)?.titleHero;
 
@@ -61,21 +72,94 @@ const Programa = () => {
             <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-gold-400 sm:w-32" />
           </motion.div>
 
+          {/* Invitación a participar de los eventos */}
           <motion.div
             ref={descRef}
             initial={{ opacity: 0, y: 20 }}
             animate={descVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className="mb-10 flex flex-col items-center justify-center text-center"
+            className="mb-12 flex flex-col items-center justify-center text-center"
           >
-            <p className="mb-8 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
-              La VI Semana de la Geofísica contará con conferencias, talleres, espacios académicos y actividades de integración durante toda la semana.
-            </p>
-            <h5 className="mb-5 font-['Montserrat'] text-xl font-bold tracking-widest text-slate-900 sm:text-2xl">
-              Programa de Conferencia
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-gold-400/10 px-4 py-1.5 font-['Montserrat'] text-xs font-semibold uppercase tracking-widest text-gold-600">
+              <span className="h-2 w-2 rounded-full bg-gold-500" />
+              Charlas y Conferencias
+            </span>
+            <h5 className="mb-5 max-w-3xl font-['Montserrat'] text-xl font-bold tracking-wide text-slate-900 sm:text-2xl md:text-3xl">
+              Te invitamos a participar de los eventos que tenemos para ti
             </h5>
-            <Proxima id={1} />
+            <p className="mb-4 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
+              La VI Semana de la Geofísica contará con charlas y conferencias de investigadores y profesionales que compartirán su experiencia y los avances más recientes en geociencias.
+            </p>
+            <p className="font-['Montserrat'] text-sm font-medium text-slate-500">
+              Pasa el cursor sobre cada tarjeta para conocer cada charla y haz clic para ver los detalles e inscribirte.
+            </p>
+
+            {/* Panel de espera oculto mientras haya eventos publicados */}
+            {/* <Proxima id={1} /> */}
           </motion.div>
+
+          {/* Tarjetas de los eventos */}
+          <div className="mb-20">
+            <EventosGrid eventos={Charlas} tipo="Charla Magistral" proximoId={1} />
+          </div>
+
+          {/* Paneles con sus ponentes */}
+          {Paneles.map((panel) => (
+            <section key={panel.id} className="mb-20">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                className="mb-10 flex flex-col items-center text-center"
+              >
+                {/* Título del panel con separadores laterales */}
+                <div className="mb-5 flex items-center justify-center gap-4">
+                  <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-gold-400 sm:w-24" />
+                  <h5 className="font-['Montserrat'] text-xl font-bold uppercase tracking-wide text-slate-900 sm:text-2xl sm:tracking-widest">
+                    {panel.titulo}
+                  </h5>
+                  <div className="h-[2px] w-12 bg-gradient-to-l from-transparent to-gold-400 sm:w-24" />
+                </div>
+
+                {/* Descripción del panel */}
+                <p className="mb-5 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
+                  {panel.descripcion}
+                </p>
+
+                {/* Fecha, hora y lugar del panel */}
+                <div className="flex flex-wrap justify-center gap-2">
+                  {['fecha', 'hora', 'lugar'].map((campo) =>
+                    panel[campo] ? (
+                      <span
+                        key={campo}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-['Montserrat'] text-xs font-medium text-slate-700 shadow-sm sm:text-sm"
+                      >
+                        <svg className="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={ICONOS_PANEL[campo]} />
+                        </svg>
+                        {panel[campo]}
+                      </span>
+                    ) : null
+                  )}
+                </div>
+              </motion.div>
+
+              {/* Tarjetas de los ponentes del panel */}
+              <EventosGrid
+                eventos={panel.ponentes.map((ponente) => ({
+                  ...ponente,
+                  titulo: panel.titulo,
+                  descripcion: panel.descripcion,
+                  fecha: panel.fecha,
+                  hora: panel.hora,
+                  lugar: panel.lugar,
+                  link_inscripcion: panel.link_inscripcion,
+                }))}
+                tipo="Panel"
+              />
+            </section>
+          ))}
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
