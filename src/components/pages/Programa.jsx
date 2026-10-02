@@ -90,9 +90,6 @@ const Programa = () => {
             <p className="mb-4 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
               La VI Semana de la Geofísica contará con charlas y conferencias de investigadores y profesionales que compartirán su experiencia y los avances más recientes en geociencias.
             </p>
-            <p className="font-['Montserrat'] text-sm font-medium text-slate-500">
-              Pasa el cursor sobre cada tarjeta para conocer cada charla y haz clic para ver los detalles e inscribirte.
-            </p>
 
             {/* Panel de espera oculto mientras haya eventos publicados */}
             {/* <Proxima id={1} /> */}

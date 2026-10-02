@@ -70,9 +70,6 @@ const Cursos = () => {
             <p className="mb-4 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
               Durante la VI Semana de la Geofísica tendremos espacios prácticos guiados por expertos, pensados para que fortalezcas tus conocimientos y aprendas nuevas herramientas del área.
             </p>
-            <p className="font-['Montserrat'] text-sm font-medium text-slate-500">
-              Pasa el cursor sobre cada tarjeta para conocer cada taller y haz clic para ver los detalles e inscribirte.
-            </p>
 
             {/* Panel de espera oculto mientras haya eventos publicados */}
             {/* <Proxima id={2} /> */}
