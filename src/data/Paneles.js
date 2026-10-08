@@ -3,6 +3,8 @@ import SoniaP from '../assets/ponentes/Sonia_Ponguta.avif'
 import LinaD from '../assets/ponentes/Lina_Dorado.avif'
 import FranckA from '../assets/ponentes/Franck_Audemard.avif'
 import GloriaC from '../assets/ponentes/Gloria_Cortes.avif'
+import RaisaT from '../assets/ponentes/Raisa_Torres.avif'
+import FranciscoV from '../assets/ponentes/Francisco_Velandia.avif'
 
 // Información tomada del proyecto 2026_VI_SEMANA_GEOFÍSICA de Canva (piezas de los paneles)
 // Cada panel genera un título con su descripción y una tarjeta por cada ponente
@@ -12,8 +14,7 @@ export const Paneles = [
     {
         id: 1,
         titulo: "Panel de Mujeres",
-        // Descripción redactada para la web (en Canva aún dice "Pequeña descripción del panel"), ajustarla si es necesario
-        descripcion: "Un espacio de conversación con mujeres líderes en las geociencias, quienes compartirán su trayectoria en la academia, la industria energética y la gestión del riesgo de desastres, así como los retos y oportunidades para fortalecer la participación de las mujeres en la geofísica y la geología.",
+        descripcion: "Un espacio de conversación sobre los desafíos, oportunidades y experiencias de las mujeres en la dirección de proyectos en geociencias, destacando su liderazgo, toma de decisiones y desarrollo profesional.",
         fecha: "Martes, 3 de noviembre",
         hora: "3:00 p.m. - 5:00 p.m.",
         lugar: "Auditorio Guillermo Camacho Caro",
@@ -38,7 +39,7 @@ export const Paneles = [
             {
                 id: 3,
                 ponente: "M.Sc. Lina Dorado",
-                cargo_ponente: "UNGRD",
+                cargo_ponente: "Cruz Roja Colombiana",
                 tipo_ponente: "Ponente nacional",
                 perfil_ponente: "Ingeniera Geóloga, Magíster en Gestión del Riesgo y Atención de Emergencias y en Desarrollo Sustentable, con 25 años de experiencia en gestión del riesgo de desastres. Ha ocupado cargos directivos en Nariño y la UNGRD, y actualmente es Líder Nacional del Equipo de Gestión del Riesgo de Desastres de la Cruz Roja Colombiana. Su experiencia incluye acciones anticipatorias, sistemas de alerta comunitaria, resiliencia, cambio climático y soluciones basadas en la naturaleza, con participación en importantes escenarios internacionales sobre reducción del riesgo y acción climática.",
                 imagen_ponente: LinaD,
@@ -48,8 +49,7 @@ export const Paneles = [
     {
         id: 2,
         titulo: "Panel de Gestión del Riesgo",
-        // Descripción redactada para la web (en Canva aún dice "Pequeña descripción del panel"), ajustarla si es necesario
-        descripcion: "Especialistas en sismología, neotectónica y vulcanología dialogarán sobre el papel de las geociencias en la evaluación de amenazas naturales, el monitoreo de fenómenos geológicos y la reducción del riesgo de desastres en la región.",
+        descripcion: "Un espacio para conocer y discutir el panorama de la amenaza y riesgo sísmico en Colombia, junto con sus principales avances y desafíos.",
         fecha: "Jueves, 5 de noviembre",
         hora: "9:00 a.m. - 11:00 a.m.",
         lugar: "Auditorio Luis Eduardo Lobo",
@@ -64,22 +64,29 @@ export const Paneles = [
                 imagen_ponente: FranckA,
             },
             {
-                // Institución pendiente en Canva
                 id: 2,
-                ponente: "M.Sc. Gloria Cortés",
-                cargo_ponente: "",
+                ponente: "Ph.D. Gloria Cortés",
+                cargo_ponente: "Investigadora independiente",
                 tipo_ponente: "Ponente nacional",
                 perfil_ponente: "Geóloga de la Universidad de Caldas, especialista en Gestión del Riesgo Natural y Magíster en Ciencias de la Tierra, con 35 años de experiencia en el Servicio Geológico Colombiano. Su trayectoria se ha enfocado en monitoreo y amenaza volcánica, gestión del riesgo, apropiación social del conocimiento, geoconservación, geoeducación y geoturismo. Fue coordinadora del Observatorio Vulcanológico y Sismológico de Manizales y es miembro fundador de la Asociación Latinoamericana de Vulcanología (ALVO).",
                 imagen_ponente: GloriaC,
             },
             {
-                // Título, institución y perfil pendientes en Canva
                 id: 3,
-                ponente: "Raida Torres",
-                cargo_ponente: "",
+                ponente: "Ph.D. Raisa Torres",
+                cargo_ponente: "Universidad Yachay Tech",
                 tipo_ponente: "Ponente internacional",
-                perfil_ponente: "",
-                imagen_ponente: "",
+                perfil_ponente: "Raisa Torres es docente-investigadora de Geología en la Universidad Yachay Tech, especializada en geomorfología, teledetección y análisis de riesgos naturales. Su trabajo se enfoca en la dinámica de laderas, movimientos en masa e inundaciones en los Andes ecuatorianos, integrando drones, sensores remotos, SIG y métodos geofísicos para estudiar la inestabilidad del terreno y contribuir a la gestión territorial y reducción del riesgo de desastres.",
+                imagen_ponente: RaisaT,
+            },
+            {
+                // En Canva aparece como moderador del panel
+                id: 4,
+                ponente: "Ph.D. Francisco Velandia",
+                cargo_ponente: "Universidad Industrial de Santander",
+                tipo_ponente: "Moderador",
+                perfil_ponente: "Geólogo, MSc. en Geología y Doctor en Geociencias, con experiencia en geología regional, neotectónica, geomorfología, hidrogeología y amenazas geológicas. Trabajó 21 años en INGEOMINAS, actual SGC, liderando proyectos de cartografía, hidrogeología y geotermia. Desde 2011 es profesor de la UIS e investigador en la evolución tectónica reciente de los Andes del Norte.",
+                imagen_ponente: FranciscoV,
             },
         ],
     },

@@ -6,6 +6,7 @@ import FranckA from '../assets/ponentes/Franck_Audemard.avif'
 import LuisO from '../assets/ponentes/Luis_Hernan_Ochoa.avif'
 import NilsonD from '../assets/ponentes/Nilson_Delgado.avif'
 import EfrainL from '../assets/ponentes/Efrain_Laverde.avif'
+import SergioA from '../assets/ponentes/Sergio_Abreo.avif'
 
 // Información tomada del proyecto 2026_VI_SEMANA_GEOFÍSICA de Canva (piezas "Charla Magistral")
 // Cada objeto genera una tarjeta, solo se muestran los que tengan titulo y ponente
@@ -101,6 +102,20 @@ export const Charlas = [
     },
     {
         id: 7,
+        titulo: "Modelado e inversión 3D de datos magnetotelúricos",
+        descripcion: "Un recorrido computacional desde el problema directo hasta la inversión usando el método del estado adjunto.",
+        ponente: "Ph.D. Sergio Abreo",
+        cargo_ponente: "Universidad Industrial de Santander",
+        tipo_ponente: "Ponente nacional",
+        perfil_ponente: "Doctor en Ingeniería y docente-investigador de la Universidad Industrial de Santander (UIS). Su investigación se enfoca en el procesamiento, modelamiento e inversión de datos geofísicos, con énfasis en sísmica, electromagnetismo, FWI, inversión conjunta y caracterización del subsuelo. Cuenta con experiencia en modelamiento computacional, desarrollo de software científico, investigación interdisciplinaria y docencia universitaria.",
+        fecha: "Jueves, 5 de noviembre",
+        hora: "8:00 a.m. - 9:00 a.m.",
+        lugar: "Auditorio Alberto Elías Hernández Durán (CENTIC)",
+        imagen_ponente: SergioA,
+        link_inscripcion: "",
+    },
+    {
+        id: 8,
         titulo: "Más allá de la imagen conocida: Relevancia del reprocesamiento sísmico para la definición de rasgos estratigráficos en los Llanos Orientales",
         descripcion: "",
         ponente: "M.Sc. Nilson Delgado",
@@ -114,7 +129,7 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 8,
+        id: 9,
         titulo: "Las geociencias aplicadas a los proyectos de exploración del subsuelo",
         descripcion: "",
         ponente: "M.Sc. Efraín Laverde Mera",
