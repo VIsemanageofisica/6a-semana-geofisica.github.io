@@ -102,7 +102,7 @@ const EventModal = ({ evento, tipo, open, onClose }) => {
             aria-modal="true"
             aria-labelledby={titleId}
             tabIndex={-1}
-            className="relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white shadow-2xl outline-none sm:rounded-3xl"
+            className="relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto scrollbar-modal rounded-2xl bg-white shadow-2xl outline-none sm:rounded-3xl"
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}

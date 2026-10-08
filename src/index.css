@@ -25,6 +25,26 @@
   --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Scroll fino para modales: el margen del track evita que la barra corte las esquinas redondeadas */
+@utility scrollbar-modal {
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-400) transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 1.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-gold-400);
+    border-radius: 9999px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../../hooks/useScrollReveal.js';
 import { TextReveal } from '../ui/TextReveal.jsx';
 import Hero from '../static/Hero.jsx';
@@ -11,6 +11,8 @@ import Recepcion1 from '../../assets/flyers/recepcion_resumenes_2026.avif';
 import Recepcion2 from '../../assets/flyers/recepcion_resumenes_poster.avif';
 import Recepcion3 from '../../assets/flyers/recepcion_resumenes_posters_evento.avif';
 import FeaturesCards from '../ui/FeaturesCards.jsx';
+import { useRef, useEffect, useCallback, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const tituloResumenes = DataPages.find(page => page.id === 10)?.titleHero;
 
@@ -45,12 +47,154 @@ const stepsData = [
   { title: '3. Completa el formulario', desc: 'Registra la información de los autores y sigue las indicaciones disponibles en el formulario de recepción de resúmenes.', icon: 'M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5' },
 ];
 
+// Enlace a la plantilla del póster (dejar vacío mientras no esté disponible)
+const PLANTILLA_POSTER_URL = 'https://canva.link/7o5eu6t67pnltj6';
+
+const posterSteps = [
+  { title: 'Ingresa al enlace de Canva', desc: <>Abre la plantilla del póster con el botón <strong className="text-slate-800">Ir a la plantilla</strong>.</> },
+  { title: 'Crea tu propia copia', desc: <>En la barra superior, haz clic en <strong className="text-slate-800">Archivo → Crear una copia</strong>.</> },
+  { title: 'Edita tu póster', desc: 'Se generará una copia editable que podrás modificar libremente con tu información, figuras y resultados.' },
+];
+
+const PosterModal = ({ open, onClose }) => {
+  const panelRef = useRef(null)
+  const previousFocus = useRef(null)
+
+  const handleClose = useCallback(() => {
+    previousFocus.current?.focus?.()
+    onClose()
+  }, [onClose])
+
+  // Bloqueamos el scroll y cerramos el modal con la tecla Escape
+  useEffect(() => {
+    if (!open) return undefined
+    previousFocus.current = document.activeElement
+    document.body.style.overflow = 'hidden'
+    panelRef.current?.focus()
+    const onKeyDown = (e) => e.key === 'Escape' && handleClose()
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [open, handleClose])
+
+  return createPortal(
+    <AnimatePresence>
+      {open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          <motion.div
+            className="absolute inset-0 bg-brand-950/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            onClick={handleClose}
+            aria-hidden="true"
+          />
+
+          <motion.div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="poster-modal-titulo"
+            tabIndex={-1}
+            className="relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto scrollbar-modal rounded-2xl bg-white shadow-2xl outline-none sm:rounded-3xl"
+            initial={{ opacity: 0, scale: 0.95, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 16 }}
+            transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
+          >
+            {/* Cabecera */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 px-6 pb-8 pt-10 text-white sm:px-10">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold-500/15 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-brand-500/20 blur-3xl" />
+
+              <button
+                type="button"
+                onClick={handleClose}
+                aria-label="Cerrar"
+                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-lg text-slate-300 transition-colors duration-200 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              </button>
+
+              <div className="relative">
+                <span className="inline-flex rounded-full border border-gold-400/30 bg-gold-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-gold-300">
+                  Modalidad póster
+                </span>
+                <h2 id="poster-modal-titulo" className="mt-3 font-['Montserrat'] text-xl font-black leading-tight sm:text-2xl md:text-3xl">
+                  Crea tu póster paso a paso
+                </h2>
+                <p className="mt-2 font-['Montserrat'] text-sm text-slate-300 sm:text-base">
+                  Instrucciones para usar la plantilla de Canva de la VI Semana de la Geofísica.
+                </p>
+              </div>
+            </div>
+
+            <div className="px-6 py-7 sm:px-10">
+              <div className="mb-6 h-1 w-14 rounded-full bg-gradient-to-r from-gold-400 to-gold-600" />
+
+              <ol className="mb-8 flex flex-col gap-5">
+                {posterSteps.map((step, index) => (
+                  <li key={step.title} className="flex gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold-400/15 font-['Montserrat'] text-base font-black text-gold-600 shadow-sm">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-['Montserrat'] font-bold text-slate-900">{step.title}</h3>
+                      <p className="mt-1 font-['Montserrat'] text-[15px] leading-relaxed text-slate-600">{step.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mb-8 rounded-xl border-l-4 border-gold-400 bg-gold-400/10 p-5 font-['Montserrat'] text-[15px] leading-relaxed text-slate-600">
+                Te recordamos cuidar la <strong className="text-slate-800">claridad visual, ortografía y calidad gráfica</strong> de tu póster. Próximamente te enviaremos información adicional sobre <strong className="text-slate-800">los detalles logísticos</strong> para la sesión de exposición.
+              </div>
+
+              <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-end">
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="rounded-full px-6 py-3 font-['Montserrat'] text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700"
+                >
+                  Cerrar
+                </button>
+                {PLANTILLA_POSTER_URL ? (
+                  <a
+                    href={PLANTILLA_POSTER_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 px-10 py-3.5 font-['Montserrat'] text-sm font-bold uppercase tracking-widest text-brand-950 shadow-lg shadow-gold-500/30 transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+                  >
+                    Ir a la plantilla
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center justify-center rounded-full bg-slate-100 px-8 py-3.5 font-['Montserrat'] text-xs font-bold uppercase tracking-widest text-slate-400">
+                    Plantilla próximamente
+                  </span>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  )
+}
+
 const Resumenes = () => {
   const [quoteRef, quoteVisible] = useScrollReveal({ margin: '-100px' });
   const [titleRef, titleVisible] = useScrollReveal({ margin: '-100px' });
   const [descRef, descVisible] = useScrollReveal({ margin: '-100px' });
   const [leftRef, leftVisible] = useScrollReveal({ margin: '-80px' });
   const [rightRef, rightVisible] = useScrollReveal({ margin: '-80px' });
+  const [posterOpen, setPosterOpen] = useState(false);
+  const closePoster = useCallback(() => setPosterOpen(false), []);
 
   return (
     <div>
@@ -218,10 +362,17 @@ const Resumenes = () => {
                 </h4>
               </div>
 
-              <div className="flex w-full justify-start">
-                <AnimatedButton onClick={() => console.log('Abriendo formulario')}>
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform">Envía Resumen</a>
-                </AnimatedButton>
+              <div className="flex w-full flex-col items-start sm:flex-row sm:items-center sm:gap-4">
+                <div className="flex w-full justify-start">
+                  <AnimatedButton onClick={() => console.log('Abriendo formulario')}>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhq-i8Raa3W6W2wPUhHqbriF4j08ck63dccxAKLYcZuP8PjQ/viewform">Envía Resumen</a>
+                  </AnimatedButton>
+                </div>
+                <div className="ml-1 flex w-full justify-start">
+                  <AnimatedButton onClick={() => setPosterOpen(true)}>
+                    Plantilla para tu poster
+                  </AnimatedButton>
+                </div>
               </div>
             </motion.div>
 
@@ -247,6 +398,7 @@ const Resumenes = () => {
       </section>
 
       <Video />
+      <PosterModal open={posterOpen} onClose={closePoster} />
     </div>
   );
 };

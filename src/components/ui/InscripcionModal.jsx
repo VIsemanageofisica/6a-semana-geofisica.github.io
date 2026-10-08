@@ -221,7 +221,7 @@ const InscripcionModal = ({ open, onClose }) => {
             aria-modal="true"
             aria-labelledby="inscripcion-modal-title"
             tabIndex={-1}
-            className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl outline-none"
+            className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto scrollbar-modal rounded-2xl bg-white shadow-2xl outline-none"
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
