@@ -68,9 +68,14 @@ const Inicio = () => {
 
   // Filtramos la data de los miembros del equipo
   const comiteOrganizador = teamMembers.filter(m => m.comite === "Comité Organizador");
+
+  // Filtro de comite de apoyo
   const comiteApoyo = teamMembers.filter(m => m.comite === "Comité de Apoyo");
 
-  // Filtro de comite admonostrativo
+  // Filtro de comite logístico
+  const comiteLogistico = teamMembers.filter(m => m.comite === "Comite Logistico")
+
+  // Filtro de comite administrativo
   const comiteAdministrativo = teamMembers.filter(m => m.comite === "Comité Administrativo");
   
   // Agrupamos el Científico
@@ -123,6 +128,8 @@ const Inicio = () => {
           </motion.div>
 
           <ComiteGrupo titulo="Comité Organizador" miembros={comiteOrganizador} onMiembroClick={abrirLinkedIn} />
+
+          <ComiteGrupo titulo="Comité Logístico" miembros={comiteLogistico} onMiembroClick={abrirLinkedIn}/>
 
           <ComiteGrupo titulo="Comité de Apoyo" miembros={comiteApoyo} onMiembroClick={abrirLinkedIn} />
 

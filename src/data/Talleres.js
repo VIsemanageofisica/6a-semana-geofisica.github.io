@@ -1,5 +1,4 @@
 import OscarA from '../assets/ponentes/Oscar_Avila.avif'
-import HugoC from '../assets/ponentes/Hugo_Cruz.avif'
 import LuisO from '../assets/ponentes/Luis_Hernan_Ochoa.avif'
 
 // Información tomada del proyecto 2026_VI_SEMANA_GEOFÍSICA de Canva (piezas "Curso-Taller")
@@ -25,20 +24,6 @@ export const Talleres = [
     },
     {
         id: 2,
-        titulo: "Estimación de la estructura de velocidades Vs a partir de la inversión del Cociente Espectral H/V (Técnica de Nakamura)",
-        descripcion: "",
-        ponente: "Ph.D. Hugo Cruz Jiménez",
-        cargo_ponente: "Universidad Nacional Autónoma de México",
-        tipo_ponente: "Ponente internacional",
-        perfil_ponente: "El Dr. Hugo Cruz Jiménez es geofísico especializado en sismología de terremotos, con maestría y doctorado por la UNAM y experiencia de investigación en Japón, Estados Unidos, Suiza y Arabia Saudita. Ha realizado estancias posdoctorales en KAUST y en el Instituto de Ingeniería de la UNAM, y cuenta con la distinción de Investigador Nivel 1 del SNI. Además, posee amplia experiencia docente y ha publicado y presentado sus investigaciones en revistas y congresos nacionales e internacionales.",
-        fecha: "Miércoles, 4 de noviembre",
-        hora: "3:00 p.m. - 6:00 p.m.",
-        lugar: "Auditorio Alberto Elías Hernández Durán (CENTIC)",
-        imagen_ponente: HugoC,
-        link_inscripcion: "",
-    },
-    {
-        id: 3,
         titulo: "Algoritmos Genéticos aplicados a un problema inverso de gravimetría",
         descripcion: "",
         ponente: "Ph.D. Luis Hernán Ochoa Gutiérrez",
@@ -52,3 +37,4 @@ export const Talleres = [
         link_inscripcion: "",
     },
 ]
+

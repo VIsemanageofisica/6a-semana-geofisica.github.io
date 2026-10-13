@@ -19,7 +19,7 @@ export const teamMembers = [
     },
     {
         id: 2,
-        comite: "Comité Organizador",
+        comite: "Comite Logistico",
         name: "Daniela Quintero",
         linkedin: "https://www.linkedin.com/in/geodanielaquintero/",
         imagen: DanielaQ
@@ -33,7 +33,7 @@ export const teamMembers = [
     },
     {
         id: 4,
-        comite: "Comité de Apoyo",
+        comite: "Comite Logistico",
         name: "Jose Barrios",
         linkedin: "https://www.linkedin.com/in/jose-alejandro-barrios-pico-b592a5361/",
         imagen: JoseB
