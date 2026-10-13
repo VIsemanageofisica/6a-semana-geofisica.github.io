@@ -67,7 +67,7 @@ const Inicio = () => {
   const tituloInicio = DataPages.find(page => page.id === 1)?.titleHero || "VI Semana de la Geofísica";
 
   // Filtramos la data de los miembros del equipo
-  const comiteOrganizador = teamMembers.filter(m => m.comite === "Comité Organizador");
+  const comiteOrganizador = teamMembers.filter(m => m.comite === "Lider Comité Organizador");
 
   // Filtro de comite de apoyo
   const comiteApoyo = teamMembers.filter(m => m.comite === "Comité de Apoyo");
