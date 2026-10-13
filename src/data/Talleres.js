@@ -20,7 +20,7 @@ export const Talleres = [
         hora: "8:00 a.m. - 11:00 a.m.",
         lugar: "Auditorio Alberto Elías Hernández Durán (CENTIC)",
         imagen_ponente: OscarA,
-        link_inscripcion: "",
+        link_inscripcion: "https://docs.google.com/forms/d/e/1FAIpQLSf9XywMfE0DNdJsTQAa-l3K5iJaYKz4jNl7AAGIuhwr17dhhA/viewform?usp=header",
     },
     {
         id: 2,
@@ -34,7 +34,7 @@ export const Talleres = [
         hora: "8:00 a.m. - 12:00 m.",
         lugar: "Auditorio Alberto Elías Hernández Durán (CENTIC)",
         imagen_ponente: LuisO,
-        link_inscripcion: "",
+        link_inscripcion: "https://docs.google.com/forms/d/e/1FAIpQLSesLjoLDbsMwqyy0SnmGhLmpFVr11jp5yJi1V-oFJJL9nvrZw/viewform",
     },
 ]
 
