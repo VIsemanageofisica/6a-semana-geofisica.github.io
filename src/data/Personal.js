@@ -12,7 +12,7 @@ import DavidZ from '../assets/team/David_Zapata.avif'
 export const teamMembers = [
     {
         id: 1,
-        comite: "Comité Organizador",
+        comite: "Lider Comité Organizador",
         name: "Ana Mantilla",
         linkedin: "linkedin.com/in/ana-gabriela-mantilla-24377a21a",
         imagen: AnaM

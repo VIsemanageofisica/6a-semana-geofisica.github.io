@@ -66,7 +66,7 @@ const Inicio = () => {
   // Obtenemos el título de la página de inicio desde Vistas.js (id: 1)
   const tituloInicio = DataPages.find(page => page.id === 1)?.titleHero || "VI Semana de la Geofísica";
 
-  // Filtramos la data de los miembros del equipo
+  // Filtramos la data del comité Organizador
   const comiteOrganizador = teamMembers.filter(m => m.comite === "Lider Comité Organizador");
 
   // Filtro de comite de apoyo
