@@ -101,7 +101,7 @@ const Aprende = () => {
 
       <div className="mb-10 flex flex-col items-center justify-center px-4 text-center">
         <h3 className="mb-3 font-['Montserrat'] text-2xl font-bold tracking-widest text-slate-900 sm:text-2xl">
-          Tutorial de Procesamiento Magnetotelúrico
+          Curso Teórico Práctico sobre Inversión Geofísica en Python
         </h3>
       </div>
 
@@ -121,7 +121,7 @@ const Aprende = () => {
           <div className="rounded-2xl bg-gradient-to-br from-white/95 to-rose-50/95 p-3 shadow-xl sm:rounded-[2.6rem]">
             <div className="relative overflow-hidden rounded-2xl bg-black shadow-inner sm:rounded-[2.2rem]">
               <iframe
-                src="https://www.youtube.com/embed/lzUhIHVW1zo"
+                src="https://www.youtube.com/watch?v=SriI-fnhWYc&list=PLBrkSquHNyNM"
                 title="Tutorial Magnetotelúrico"
                 className="aspect-[16/9] w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -134,7 +134,7 @@ const Aprende = () => {
 
       <div className="mb-10 flex flex-col items-center justify-center px-4 text-center">
         <h3 className="mb-3 font-['Montserrat'] text-2xl font-bold tracking-widest text-slate-900 sm:text-2xl">
-          Tutorial de Procesamiento Gravimétrico
+          Curso de modelado geológico y modelamiento geofísico 3D
         </h3>
       </div>
 
@@ -154,7 +154,7 @@ const Aprende = () => {
           <div className="rounded-2xl bg-gradient-to-br from-white/95 to-rose-50/95 p-3 shadow-xl sm:rounded-[2.6rem]">
             <div className="relative overflow-hidden rounded-2xl bg-black shadow-inner sm:rounded-[2.2rem]">
               <iframe
-                src="https://www.youtube.com/embed/xBWFjzD98Sg"
+                src="https://www.youtube.com/watch?v=OZ3yxASepeI&list=PLfG7XxJVRQiE"
                 title="Tutorial Gravimétrico"
                 className="aspect-[16/9] w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
