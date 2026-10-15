@@ -34,7 +34,7 @@ export const Charlas = [
         titulo: "Integración y transferencia de metodologías aplicadas a la exploración del subsuelo",
         descripcion: "",
         ponente: "Ph.D. Leidy Castro Vera",
-        cargo_ponente: "Aachen University",
+        cargo_ponente: "Tiera-A AG",
         tipo_ponente: "Ponente internacional",
         perfil_ponente: "Geóloga con doctorado en Geociencias Aplicadas, especializada en exploración de recursos del subsuelo, interpretación geológica y aplicación de tecnologías innovadoras. Actualmente lidera proyectos de exploración de minerales y apoya técnicamente proyectos de exploración de hidrógeno blanco y aguas subterráneas. Su experiencia integra análisis y modelamiento de cuencas 1D–3D, interpretación sísmica, investigación y gestión de proyectos multidisciplinarios.",
         fecha: "Martes, 3 de noviembre",

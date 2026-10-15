@@ -83,13 +83,7 @@ const Contacto = () => {
             </h5>
             <ul className="mb-2 mt-3 max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
               <li>
-                <span className="font-extrabold text-slate-800">Ana Mantilla</span> - <a href="mailto:ana.mantilla@correo.uis.edu.co">ana.mantilla@correo.uis.edu.co</a>
-              </li>
-              <li>
-                <span className="font-extrabold text-slate-800">Daniela Quintero</span> - <a href="mailto:daniela2202434@correo.uis.edu.co">daniela2202434@correo.uis.edu.co</a>
-              </li>
-              <li>
-                <span className="font-extrabold text-slate-800">Grupo de Investigación HDSP</span> - <a href="mailto:hdsp@uis.edu.co">hdsp@uis.edu.co</a>
+                <span className="font-extrabold text-slate-800">VI Semana de la Geofísica</span> - <a href="mailto:hdsp@uis.edu.co">6a.semana.geofisica@gmail.com</a>
               </li>
             </ul>
           </motion.div>

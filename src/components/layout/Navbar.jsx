@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router'
 import OptimizedImage from '../ui/OptimizedImage.jsx'
 import eventLogo from '../../assets/logos/2026_VI_SEMANA_GEOFÍSICA.avif'
+import logoUis from '../../assets/logos/UIS.avif'
 
 const menuItems = [
   { label: 'Inicio', to: '/', end: true },
@@ -80,6 +81,18 @@ const Logo = ({ className }) => (
   </span>
 )
 
+const LogoUis = ({className}) => (
+  <span  className={`flex shrink-0 items-center justify-center bg-white p-2 ${className}`}>
+    <OptimizedImage
+      src={logoUis}
+      alt="Logo Universidad Industrial de Santander"
+      className="h-full w-full"
+      imgClassName="object-contain"
+      priority
+    />
+  </span>
+)
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState(null)
@@ -127,7 +140,7 @@ const Navbar = () => {
             className="flex items-center gap-3 sm:gap-6"
             aria-label="Ir a Inicio"
           >
-            <Logo className="h-14 w-14 shrink-0 rounded-xl sm:h-28 sm:w-28 sm:rounded-2xl" />
+            <Logo className="h-14 w-14 shrink-0 rounded-xl sm:h-28 sm:w-28 sm:rounded-2xl  mix-blend-multiply" />
             <span className="flex flex-col gap-1 sm:gap-1.5">
               <span className="font-['Montserrat'] text-base font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
                 VI Semana de la Geofísica
@@ -151,7 +164,7 @@ const Navbar = () => {
               </span>
             </span>
           </Link>
-          <Logo className="hidden h-24 w-24 shrink-0 rounded-2xl sm:flex lg:h-32 lg:w-32" />
+          <LogoUis className="hidden h-24 w-24 shrink-0 rounded-2xl bg-transparent sm:flex lg:h-20 lg:w-32  mix-blend-multiply" />
         </div>
       </header>
 
