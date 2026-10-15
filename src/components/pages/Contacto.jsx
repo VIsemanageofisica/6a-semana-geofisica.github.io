@@ -75,7 +75,7 @@ const Contacto = () => {
               Para más información y cualquier consulta, no dude en contactar a los organizadores:
               <br />
               <span className="font-extrabold text-slate-800">
-                Ana Mantilla - Daniela Quintero - Grupo de Investigación HDSP
+                Grupo de Investigación HDSP
               </span>
             </p>
             <h5 className="font-['Montserrat'] text-xl font-bold tracking-widest text-slate-900 sm:text-2xl">
