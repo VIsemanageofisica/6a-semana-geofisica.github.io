@@ -117,7 +117,9 @@ const InscripcionModal = ({ open, onClose }) => {
   }, [open, handleClose])
 
   const setField = (field) => (event) => {
-    setForm((current) => ({ ...current, [field]: event.target.value }))
+    // Limita la longitud para evitar envíos abusivos a EmailJS / Google Sheets.
+    const max = field === 'comentarios' ? 1000 : 150
+    setForm((current) => ({ ...current, [field]: event.target.value.slice(0, max) }))
     setErrors((current) => ({ ...current, [field]: undefined }))
   }
 

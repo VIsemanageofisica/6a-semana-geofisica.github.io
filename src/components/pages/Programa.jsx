@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal, useStaggeredReveal } from '../../hooks/useScrollReveal.js';
 import { TextReveal } from '../ui/TextReveal.jsx';
@@ -9,6 +10,10 @@ import { DataPages } from '../../data/Vistas.js';
 import EventosGrid from '../ui/EventosGrid.jsx';
 import { Charlas } from '../../data/Charlas.js';
 import { Paneles } from '../../data/Paneles.js';
+import FlyersGrid, { FlyerModal } from '../ui/FlyersGrid.jsx';
+import OptimizedImage from '../ui/OptimizedImage.jsx';
+import { Actividades } from '../../data/Actividades.js';
+import Cronograma from '../../assets/flyers/cronograma.avif';
 
 // Íconos de fecha, hora y lugar para los paneles
 const ICONOS_PANEL = {
@@ -18,6 +23,41 @@ const ICONOS_PANEL = {
 };
 
 const tituloPrograma = DataPages.find(page => page.id === 4)?.titleHero;
+
+// Datos del cronograma general para mostrarlo en el modal
+const cronogramaInfo = {
+  id: 'cronograma',
+  titulo: 'Cronograma general',
+  etiqueta: 'Programa',
+  descripcion: 'Horario de las charlas, cursos, paneles y actividades de la VI Semana de la Geofísica.',
+  fecha: 'Del 3 al 7 de noviembre de 2026',
+  lugar: 'Universidad Industrial de Santander, Bucaramanga',
+  flyer: Cronograma,
+};
+
+// Título de sección con separadores laterales
+const TituloSeccion = ({ children, descripcion }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-100px' }}
+    transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+    className="mb-10 flex flex-col items-center text-center"
+  >
+    <div className="mb-5 flex items-center justify-center gap-4">
+      <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-gold-400 sm:w-24" />
+      <h5 className="font-['Montserrat'] text-xl font-bold uppercase tracking-wide text-slate-900 sm:text-2xl sm:tracking-widest">
+        {children}
+      </h5>
+      <div className="h-[2px] w-12 bg-gradient-to-l from-transparent to-gold-400 sm:w-24" />
+    </div>
+    {descripcion && (
+      <p className="max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
+        {descripcion}
+      </p>
+    )}
+  </motion.div>
+);
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -34,6 +74,7 @@ const Programa = () => {
   const [titleRef, titleVisible] = useScrollReveal({ margin: '-100px' });
   const [descRef, descVisible] = useScrollReveal({ margin: '-100px' });
   const [microRefs, microVisible] = useStaggeredReveal(4);
+  const [cronogramaAbierto, setCronogramaAbierto] = useState(false);
 
   return (
     <div>
@@ -95,7 +136,31 @@ const Programa = () => {
             {/* <Proxima id={1} /> */}
           </motion.div>
 
+          {/* Cronograma general del evento */}
+          <section className="mb-20">
+            <TituloSeccion descripcion="Consulta el horario de todas las actividades de la semana. Haz clic en la imagen para verla en grande.">
+              Cronograma general
+            </TituloSeccion>
+            <motion.button
+              type="button"
+              onClick={() => setCronogramaAbierto(true)}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+              className="group relative mx-auto block w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-slate-100 transition-shadow duration-300 hover:shadow-2xl hover:shadow-gold-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+              aria-label="Ver el cronograma general en grande"
+            >
+              <OptimizedImage src={Cronograma} alt="Cronograma general de la VI Semana de la Geofísica" className="aspect-square w-full" imgClassName="object-contain" />
+              <span className="absolute bottom-4 right-4 rounded-full bg-white/95 px-4 py-1.5 font-['Montserrat'] text-xs font-bold uppercase tracking-widest text-brand-800 shadow opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                Ampliar
+              </span>
+            </motion.button>
+            <FlyerModal item={cronogramaAbierto ? cronogramaInfo : null} onClose={() => setCronogramaAbierto(false)} />
+          </section>
+
           {/* Tarjetas de los eventos */}
+          <TituloSeccion>Charlas magistrales</TituloSeccion>
           <div className="mb-20">
             <EventosGrid eventos={Charlas} tipo="Charla Magistral" proximoId={1} />
           </div>
@@ -157,6 +222,14 @@ const Programa = () => {
               />
             </section>
           ))}
+
+          {/* Otras actividades con sus flyers */}
+          <section className="mb-20">
+            <TituloSeccion descripcion="Además de las charlas y paneles, durante la semana tendremos espacios para conectar, presentar tu investigación y salir a campo. Haz clic en cada actividad para ver su flyer.">
+              Otras actividades
+            </TituloSeccion>
+            <FlyersGrid items={Actividades} etiqueta="Actividad" />
+          </section>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[

@@ -7,21 +7,40 @@ import LuisO from '../assets/ponentes/Luis_Hernan_Ochoa.avif'
 import NilsonD from '../assets/ponentes/Nilson_Delgado.avif'
 import EfrainL from '../assets/ponentes/Efrain_Laverde.avif'
 import SergioA from '../assets/ponentes/Sergio_Abreo.avif'
+import HenryA from '../assets/ponentes/Henry_Arguello.avif'
 
 // Información tomada del proyecto 2026_VI_SEMANA_GEOFÍSICA de Canva (piezas "Charla Magistral")
 // Cada objeto genera una tarjeta, solo se muestran los que tengan titulo y ponente
 // descripcion: texto del evento (opcional), perfil_ponente: biografía que aparece en el modal
+// pais: código del país del ponente para mostrar su bandera (co, mx, de, ar, ve, ec, ca)
 // imagen_ponente: foto importada arriba (recortada de las piezas de Canva), si queda vacío se muestran las iniciales
 // link_inscripcion: enlace al Google Forms del evento, si queda vacío se muestra "Inscripciones próximamente"
 
 export const Charlas = [
     {
+        // Charla de apertura del evento
         id: 1,
+        titulo: "Geofísica e inteligencia artificial: nuevas perspectivas para la investigación científica",
+        descripcion: "Charla de apertura de la VI Semana de la Geofísica.",
+        ponente: "Ph.D. Henry Argüello Fuentes",
+        cargo_ponente: "Universidad Industrial de Santander",
+        tipo_ponente: "Director VI Semana de la Geofísica",
+        pais: "co",
+        perfil_ponente: "Ingeniero Electricista de la Universidad Industrial de Santander y Ph.D en Ingeniería Eléctrica e Informática de la Universidad de Delaware, Estados Unidos. Actualmente es profesor de la Escuela de Ingeniería de Sistemas e Informática de la UIS y director del Grupo de Investigación en Diseño de Algoritmos y Procesamiento de Datos Multidimensionales (HDSP) y de la VI Semana de la Geofísica. Su trayectoria investigativa se centra en inteligencia artificial, procesamiento de señales, imágenes computacionales y diseño óptico. Es miembro sénior del IEEE y fue reconocido con el Premio Eloy Valenzuela a la Trayectoria Investigativa en 2024.",
+        fecha: "Martes, 3 de noviembre",
+        hora: "8:00 a.m. - 9:00 a.m.",
+        lugar: "Auditorio Alberto Elías Hernández Durán (CENTIC)",
+        imagen_ponente: HenryA,
+        link_inscripcion: "",
+    },
+    {
+        id: 2,
         titulo: "Geofísica entre ondas, rocas y realidades. El presente y futuro de la magnetotelúrica en la exploración del subsuelo",
         descripcion: "",
         ponente: "Ph.D(s). Oscar Avila Vargas",
         cargo_ponente: "Universidad Nacional Autónoma de México",
         tipo_ponente: "Ponente internacional",
+        pais: "mx",
         perfil_ponente: "Especialista internacional en Geofísica Aplicada y Métodos Electromagnéticos, con amplia experiencia en Magnetotelúrica (MT), desde la adquisición y procesamiento de datos hasta la inversión 1D/2D/3D e interpretación geológica. Su trabajo integra física electromagnética, modelado geofísico, análisis de datos y evaluación de incertidumbres, con énfasis en la construcción de modelos de resistividad consistentes con el contexto geológico y orientados a una mejor comprensión del subsuelo.",
         fecha: "Martes, 3 de noviembre",
         hora: "9:00 a.m. - 10:00 a.m.",
@@ -30,12 +49,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 2,
+        id: 3,
         titulo: "Integración y transferencia de metodologías aplicadas a la exploración del subsuelo",
         descripcion: "",
         ponente: "Ph.D. Leidy Castro Vera",
-        cargo_ponente: "Tiera-A AG",
+        cargo_ponente: "Terra-A AG",
         tipo_ponente: "Ponente internacional",
+        pais: "de",
         perfil_ponente: "Geóloga con doctorado en Geociencias Aplicadas, especializada en exploración de recursos del subsuelo, interpretación geológica y aplicación de tecnologías innovadoras. Actualmente lidera proyectos de exploración de minerales y apoya técnicamente proyectos de exploración de hidrógeno blanco y aguas subterráneas. Su experiencia integra análisis y modelamiento de cuencas 1D–3D, interpretación sísmica, investigación y gestión de proyectos multidisciplinarios.",
         fecha: "Martes, 3 de noviembre",
         hora: "10:00 a.m. - 11:00 a.m.",
@@ -44,12 +64,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 3,
+        id: 4,
         titulo: "Control estructural y diseño espacial de las fracturas controlantes de fluidos energéticos en los macizos rocosos",
         descripcion: "",
         ponente: "Ph.D. Eduardo Rosello",
         cargo_ponente: "CONICET",
         tipo_ponente: "Ponente internacional",
+        pais: "ar",
         perfil_ponente: "Investigador Principal del CONICET y profesor de Control Estructural en la Universidad de Buenos Aires, donde también integra la dirección de la Carrera de Especialización en Geología Minera. Es geólogo tectónico-estructural con amplia experiencia académica y profesional en el análisis de los controles petrotectónicos de recursos minerales y petroleros en América Latina. Ha participado en numerosos proyectos de investigación y es autor de múltiples publicaciones científicas.",
         fecha: "Martes, 3 de noviembre",
         hora: "11:00 a.m. - 12:00 m.",
@@ -58,12 +79,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 4,
+        id: 5,
         titulo: "Comparación de métodos de localización de hipocentros de sismos",
         descripcion: "",
         ponente: "Ph.D. Francisco Cabrera",
         cargo_ponente: "Investigador Independiente",
         tipo_ponente: "Ponente nacional",
+        pais: "co",
         perfil_ponente: "Francisco Cabrera Z. es Matemático de la Universidad Nacional de Colombia, Magíster en Informática de la Universidad Industrial de Santander y Doctor en Geofísica de la Universidad Federal de Bahía, Brasil. Se desempeñó como profesor de tiempo completo del Departamento de Física y Geología de la Universidad de Pamplona entre 1999 y 2025. Es miembro del grupo de investigación en Geología y Geofísica PANGEA de la Universidad de Pamplona.",
         fecha: "Martes, 3 de noviembre",
         hora: "2:00 p.m. - 3:00 p.m.",
@@ -72,13 +94,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        // El título de esta charla aún está pendiente en Canva, la tarjeta se mostrará cuando se complete
-        id: 5,
-        titulo: "",
+        id: 6,
+        titulo: "Los sismos más recientes de la falla Algeciras, con afectación en Bogotá, a partir de investigaciones paleosismológicas por trinchera",
         descripcion: "",
         ponente: "Ph.D. Franck Audemard",
         cargo_ponente: "Universidad Central de Venezuela",
         tipo_ponente: "Ponente internacional",
+        pais: "ve",
         perfil_ponente: "Geólogo e investigador senior, profesor titular y consultor especializado en geología estructural, geomorfología, neotectónica, geología de terremotos, geodinámica y geodesia GPS-GNSS. Actualmente está vinculado a la Universidad Central de Venezuela, es asesor de FUNVISIS e investigador asociado del CICESE en México. Cuenta con amplia experiencia en evaluación de amenaza sísmica, tectónica activa y caracterización de fallas.",
         fecha: "Miércoles, 4 de noviembre",
         hora: "11:00 a.m. - 12:00 m.",
@@ -87,12 +109,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 6,
+        id: 7,
         titulo: "Algoritmos de Aprendizaje de Máquina desde la perspectiva de las Geociencias",
         descripcion: "",
         ponente: "Ph.D. Luis Hernán Ochoa",
         cargo_ponente: "Universidad Nacional de Colombia",
         tipo_ponente: "Ponente nacional",
+        pais: "co",
         perfil_ponente: "PhD. en Ingeniería de Sistemas, con maestrías en Geomática y Geofísica, e Ingeniero Civil. Experto en sistemas inteligentes, aprendizaje de máquina, minería de datos y desarrollo de aplicaciones informáticas, con experiencia en sismología, métodos geofísicos, SIG, geofísica de pozos, procesamiento digital de imágenes y ciencias planetarias. Docente de la Universidad Nacional de Colombia desde 2002, Director de Área Curricular del Departamento de Geociencias desde 2016 y Profesor Titular desde agosto de 2026.",
         fecha: "Miércoles, 4 de noviembre",
         hora: "2:00 p.m. - 3:00 p.m.",
@@ -101,12 +124,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 7,
+        id: 8,
         titulo: "Modelado e inversión 3D de datos magnetotelúricos",
         descripcion: "Un recorrido computacional desde el problema directo hasta la inversión usando el método del estado adjunto.",
         ponente: "Ph.D. Sergio Abreo",
         cargo_ponente: "Universidad Industrial de Santander",
         tipo_ponente: "Ponente nacional",
+        pais: "co",
         perfil_ponente: "Doctor en Ingeniería y docente-investigador de la Universidad Industrial de Santander (UIS). Su investigación se enfoca en el procesamiento, modelamiento e inversión de datos geofísicos, con énfasis en sísmica, electromagnetismo, FWI, inversión conjunta y caracterización del subsuelo. Cuenta con experiencia en modelamiento computacional, desarrollo de software científico, investigación interdisciplinaria y docencia universitaria.",
         fecha: "Jueves, 5 de noviembre",
         hora: "8:00 a.m. - 9:00 a.m.",
@@ -115,12 +139,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 8,
+        id: 9,
         titulo: "Más allá de la imagen conocida: Relevancia del reprocesamiento sísmico para la definición de rasgos estratigráficos en los Llanos Orientales",
         descripcion: "",
         ponente: "M.Sc. Nilson Delgado",
         cargo_ponente: "HOCOL S.A.",
         tipo_ponente: "Ponente nacional",
+        pais: "co",
         perfil_ponente: "Geofísico con más de 25 años de experiencia en exploración y desarrollo de oil & gas, con maestrías en Geofísica y Data Science & Big Data. Actualmente se desempeña como Geofísico de Desarrollo Sr. en HOCOL S.A., liderando proyectos de caracterización de yacimientos y ciencia de datos. Su experiencia abarca inversión sísmica, AVO/EEI, análisis espectral y estructural, evaluación de riesgo y modelos de facies apoyados en ML/AI.",
         fecha: "Jueves, 5 de noviembre",
         hora: "11:00 a.m. - 12:00 m.",
@@ -129,12 +154,13 @@ export const Charlas = [
         link_inscripcion: "",
     },
     {
-        id: 9,
+        id: 10,
         titulo: "Las geociencias aplicadas a los proyectos de exploración del subsuelo",
         descripcion: "",
         ponente: "M.Sc. Efraín Laverde Mera",
         cargo_ponente: "Ecopetrol",
         tipo_ponente: "Ponente nacional",
+        pais: "co",
         perfil_ponente: "Ingeniero Catastral y Geodesta, MSc. en Ciencias Geofísicas, con más de 15 años de experiencia profesional en los sectores energético, académico y de consultoría. Actualmente está vinculado a Ecopetrol en proyectos asociados a la transición energética. Su experiencia se centra en prospección geofísica, análisis geoespacial, teledetección y caracterización del subsuelo, integrando herramientas como MT/AMT, ERT, gravimetría, GPR, SIG y automatización con Python y SQL.",
         fecha: "Jueves, 5 de noviembre",
         hora: "2:00 p.m. - 3:00 p.m.",

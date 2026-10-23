@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import Bandera, { PAISES } from './Bandera.jsx'
 
 // Íconos en línea con el mismo estilo de los demás íconos del sitio
 const ICONS = {
@@ -125,8 +126,12 @@ const EventModal = ({ evento, tipo, open, onClose }) => {
               </button>
 
               <div className="relative flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
-                <div className="h-28 w-28 shrink-0 overflow-hidden rounded-full ring-4 ring-gold-400/80 ring-offset-4 ring-offset-brand-950 sm:h-32 sm:w-32">
-                  <Avatar src={evento.imagen_ponente} nombre={evento.ponente} textClass="text-3xl" />
+                <div className="relative shrink-0">
+                  <div className="h-28 w-28 overflow-hidden rounded-full ring-4 ring-gold-400/80 ring-offset-4 ring-offset-brand-950 sm:h-32 sm:w-32">
+                    <Avatar src={evento.imagen_ponente} nombre={evento.ponente} textClass="text-3xl" />
+                  </div>
+                  {/* Bandera del país del ponente */}
+                  <Bandera pais={evento.pais} redonda className="absolute -bottom-1 -right-1 h-9 w-9 shadow-lg ring-2 ring-white" />
                 </div>
                 <div>
                   <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
@@ -137,6 +142,13 @@ const EventModal = ({ evento, tipo, open, onClose }) => {
                     {evento.tipo_ponente && (
                       <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-slate-300">
                         {evento.tipo_ponente}
+                      </span>
+                    )}
+                    {/* País del ponente */}
+                    {PAISES[evento.pais] && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-slate-300">
+                        <Bandera pais={evento.pais} className="h-3 w-[18px]" />
+                        {PAISES[evento.pais]}
                       </span>
                     )}
                   </div>
@@ -246,8 +258,12 @@ const EventCard = ({ evento, tipo = 'Evento' }) => {
           {/* Cara inicial: foto y nombre del ponente */}
           <div className="event-card__face event-card__speaker">
             <div className="event-card__speaker-content">
-              <div className="event-card__avatar">
-                <Avatar src={evento.imagen_ponente} nombre={evento.ponente} />
+              <div className="relative">
+                <div className="event-card__avatar">
+                  <Avatar src={evento.imagen_ponente} nombre={evento.ponente} />
+                </div>
+                {/* Bandera del país del ponente */}
+                <Bandera pais={evento.pais} redonda className="absolute bottom-1 right-1 h-10 w-10 shadow-lg ring-2 ring-white" />
               </div>
               <div className="px-5 text-center">
                 <p className="font-['Montserrat'] text-lg font-bold leading-snug text-white">
