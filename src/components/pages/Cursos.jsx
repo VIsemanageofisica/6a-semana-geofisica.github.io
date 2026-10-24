@@ -90,16 +90,6 @@ const Cursos = () => {
               transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
               className="mb-10 flex flex-col items-center text-center"
             >
-              <div className="mb-5 flex items-center justify-center gap-4">
-                <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-gold-400 sm:w-24" />
-                <h5 className="font-['Montserrat'] text-xl font-bold uppercase tracking-wide text-slate-900 sm:text-2xl sm:tracking-widest">
-                  Flyers de los cursos
-                </h5>
-                <div className="h-[2px] w-12 bg-gradient-to-l from-transparent to-gold-400 sm:w-24" />
-              </div>
-              <p className="max-w-2xl font-['Montserrat'] text-base leading-relaxed text-slate-600 sm:text-lg">
-                Haz clic en cada flyer para verlo en grande, descargarlo o inscribirte al curso.
-              </p>
             </motion.div>
           </div>
 
