@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  envPrefix: ['EMAILJS_', 'APPS_SCRIPT_'],
 })

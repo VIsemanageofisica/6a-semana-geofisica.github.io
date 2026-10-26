@@ -103,11 +103,11 @@ Copia `.env.example` a `.env` y completa los valores:
 
 | Variable | Descripción |
 |----------|-------------|
-| `VITE_EMAILJS_PUBLIC_KEY` | Clave pública de tu cuenta EmailJS |
-| `VITE_EMAILJS_SERVICE_ID` | ID del servicio de correo configurado |
-| `VITE_EMAILJS_TEMPLATE_ASISTENTE_ID` | Template de confirmación enviado al asistente |
-| `VITE_EMAILJS_TEMPLATE_ORGANIZADOR_ID` | Template de notificación enviado al organizador |
-| `VITE_EMAILJS_ORGANIZADOR_EMAIL` | Dirección de correo del organizador |
+| `EMAILJS_KEY` | Clave pública de tu cuenta EmailJS |
+| `EMAILJS_SERVICE_ID` | ID del servicio de correo configurado |
+| `EMAILJS_TEMPLATE_ASISTENTE_ID` | Template de confirmación enviado al asistente |
+| `EMAILJS_TEMPLATE_ORGANIZADOR_ID` | Template de notificación enviado al organizador |
+| `EMAILJS_ORGANIZADOR_EMAIL` | Dirección de correo del organizador |
 
 ## Páginas / Rutas
 

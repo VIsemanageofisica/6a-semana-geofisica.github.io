@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal, useStaggeredReveal } from '../../hooks/useScrollReveal.js';
+import cronogramaImg from '../../assets/cronograma/cronograma.webp';
+import cronogramaPdf from '../../assets/cronograma/VI_Cronograma_general _semana_de_la_geofisica (29.7 x 21 cm).pdf';
 
 const features = [
   {
@@ -45,6 +47,51 @@ const AcercaDelEvento = () => {
   return (
     <section className="relative overflow-hidden bg-slate-50/50 px-4 py-16 sm:px-6 md:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
+
+        <motion.div
+          ref={titleRef}
+          initial={{ opacity: 0, y: 20 }}
+          animate={titleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+          className="mb-10 flex items-center justify-center gap-4"
+        >
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={titleVisible ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="h-[2px] w-16 bg-gradient-to-r from-transparent to-gold-400 sm:w-32"
+            style={{ transformOrigin: 'left center' }}
+          />
+          <h2 className="text-center font-['Montserrat'] text-2xl font-bold uppercase tracking-widest text-slate-900 sm:text-3xl">
+            Cronograma del evento
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={titleVisible ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="h-[2px] w-16 bg-gradient-to-l from-transparent to-gold-400 sm:w-32"
+            style={{ transformOrigin: 'right center' }}
+          />
+        </motion.div>
+
+        {/* Cronograma general */}
+        <div className="mb-12 sm:mb-20">
+          <a href={cronogramaImg} target="_blank" rel="noopener noreferrer" title="Ver cronograma en tamaño completo">
+            <img
+              src={cronogramaImg}
+              alt="Cronograma general de la VI Semana de la Geofísica, 3 al 7 de noviembre de 2026"
+              className="w-full rounded-2xl shadow-2xl ring-1 ring-slate-200 transition-transform duration-300 hover:scale-[1.01]"
+            />
+          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 font-['Montserrat'] text-sm font-semibold">
+            <a href={cronogramaImg} target="_blank" rel="noopener noreferrer" className="rounded-full bg-slate-900 px-5 py-2.5 text-white transition-colors hover:bg-slate-700">
+              Ver en tamaño completo
+            </a>
+            <a href={cronogramaPdf} download="Cronograma_VI_Semana_Geofisica.pdf" className="rounded-full border-2 border-slate-900 px-5 py-2.5 text-slate-900 transition-colors hover:bg-slate-900 hover:text-white">
+              Descargar PDF
+            </a>
+          </div>
+        </div>
 
         {/* Einstein quote */}
         <motion.div

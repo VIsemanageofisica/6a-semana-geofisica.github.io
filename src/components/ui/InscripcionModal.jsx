@@ -2,13 +2,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ASISTENTE = import.meta.env.VITE_EMAILJS_TEMPLATE_ASISTENTE_ID
-const TEMPLATE_ORGANIZADOR = import.meta.env.VITE_EMAILJS_TEMPLATE_ORGANIZADOR_ID
+const EMAILJS_KEY = import.meta.env.EMAILJS_KEY
+const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID
+const TEMPLATE_ASISTENTE = import.meta.env.EMAILJS_TEMPLATE_ASISTENTE_ID
+const TEMPLATE_ORGANIZADOR = import.meta.env.EMAILJS_TEMPLATE_ORGANIZADOR_ID
 const ORGANIZADOR_EMAIL =
-  import.meta.env.VITE_EMAILJS_ORGANIZADOR_EMAIL || '6a.semana.geofisica@gmail.com'
-const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL
+  import.meta.env.EMAILJS_ORGANIZADOR_EMAIL || '6a.semana.geofisica@gmail.com'
+const APPS_SCRIPT_URL = import.meta.env.APPS_SCRIPT_URL
 
 const NIVEL_OPTIONS = [
   'Estudiante de pregrado',
@@ -181,12 +181,12 @@ const InscripcionModal = ({ open, onClose }) => {
 
     setStatus('sending')
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ASISTENTE, params, { publicKey: PUBLIC_KEY })
+      await emailjs.send(SERVICE_ID, TEMPLATE_ASISTENTE, params, { publicKey: EMAILJS_KEY })
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ORGANIZADOR,
         { ...params, to_email: ORGANIZADOR_EMAIL },
-        { publicKey: PUBLIC_KEY },
+        { publicKey: EMAILJS_KEY },
       )
       if (APPS_SCRIPT_URL) {
         await fetch(APPS_SCRIPT_URL, {
