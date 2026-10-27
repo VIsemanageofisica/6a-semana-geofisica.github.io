@@ -7,6 +7,7 @@ import { DataPages } from '../../data/Vistas.js';
 // Panel de espera oculto mientras haya eventos publicados
 // import Proxima from '../ui/Proximamente.jsx';
 import EventosGrid from '../ui/EventosGrid.jsx';
+import { Charlas } from '../../data/Charlas.js';
 import { Paneles } from '../../data/Paneles.js';
 import FlyersGrid from '../ui/FlyersGrid.jsx';
 import { Actividades } from '../../data/Actividades.js';
@@ -120,6 +121,11 @@ const Programa = () => {
             {/* <Proxima id={1} /> */}
           </motion.div>
 
+          {/* Tarjetas de las charlas */}
+          <TituloSeccion>Charlas magistrales</TituloSeccion>
+          <div className="mb-20">
+            <EventosGrid eventos={Charlas} tipo="Charla Magistral" proximoId={1} />
+          </div>
 
           {/* Paneles con sus ponentes */}
           {Paneles.map((panel) => (
