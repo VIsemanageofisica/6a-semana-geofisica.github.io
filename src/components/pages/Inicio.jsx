@@ -133,12 +133,13 @@ const Inicio = () => {
 
           <ComiteGrupo titulo="Comité de Apoyo" miembros={comiteApoyo} onMiembroClick={abrirLinkedIn} />
 
+          <ComiteGrupo titulo="Comité de Desarrollo Web" miembros={comiteDesarrolloWeb} onMiembroClick={abrirLinkedIn} />
+
           <ComiteGrupo titulo="Comité Administrativo" miembros={comiteAdministrativo} onMiembroClick={abrirLinkedIn} />
 
           <ComiteGrupo titulo="Comité Científico" miembros={comiteCientificoYAdmin} onMiembroClick={abrirLinkedIn} />
 
-          <ComiteGrupo titulo="Comité de Desarrollo Web" miembros={comiteDesarrolloWeb} onMiembroClick={abrirLinkedIn} />
-
+          
         </div>
       </section>
 
