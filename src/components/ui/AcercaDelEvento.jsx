@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal, useStaggeredReveal } from '../../hooks/useScrollReveal.js';
 import cronogramaImg from '../../assets/cronograma/cronograma.webp';
-import cronogramaPdf from '../../assets/cronograma/VI_Cronograma_general _semana_de_la_geofisica (29.7 x 21 cm).pdf';
+import cronogramaPdf from '../../assets/cronograma/VI_Cronograma_general _semana_de_la_geofisica.pdf';
 
 const features = [
   {
