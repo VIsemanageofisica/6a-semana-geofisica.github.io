@@ -24,15 +24,15 @@ const logoOrganiza = {
 };
 
 const logosApoyan = [
-  { id: 1, nombre: 'HDSP', src: hdspLogo, alt: 'Logo HDSP' },
-  { id: 2, nombre: 'Gigba', src: gigbaLogo, alt: 'Logo Gigba' },
-  { id: 3, nombre: 'Gidco', src: gidcoLogo, alt: 'Logo Gidco' },
-  { id: 4, nombre: 'SIGAC', src: logoSIGAC, alt: 'Logo SIGAC' },
+  { id: 1, nombre: 'HDSP', src: hdspLogo, alt: 'Logo HDSP', size: 'h-32 w-36' },
+  { id: 2, nombre: 'Gigba', src: gigbaLogo, alt: 'Logo Gigba', size: 'h-36 w-36' },
+  { id: 3, nombre: 'Gidco', src: gidcoLogo, alt: 'Logo Gidco', size: 'h-20 w-60' },
+  { id: 4, nombre: 'SIGAC', src: logoSIGAC, alt: 'Logo SIGAC', size: 'h-36 w-36' },
 ];
 
 const logosFinancian = [
-  { id: 1, nombre: 'Minciencias', src: logoMinciencias, alt: 'Logo Min-ciencias' },
-  { id: 2, nombre: 'ANH', src: logoANH, alt: 'Logo ANH' },
+  { id: 1, nombre: 'Minciencias', src: logoMinciencias, alt: 'Logo Min-ciencias', size: 'h-20 w-64' },
+  { id: 2, nombre: 'ANH', src: logoANH, alt: 'Logo ANH', size: 'h-20 w-72' },
 ];
 
 const Patrocinadores = () => {
@@ -99,7 +99,7 @@ const Patrocinadores = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={organizaVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="mb-14 flex flex-col items-center"
+                className="mb-20 flex flex-col items-center"
               >
                 <h4 className="mb-8 font-['Montserrat'] text-lg font-bold uppercase tracking-wider text-slate-500 sm:text-xl">
                   Organiza
@@ -108,23 +108,21 @@ const Patrocinadores = () => {
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   className="flex h-32 w-60 shrink-0 items-center justify-center p-2 sm:h-40 sm:w-80"
                 >
-                  <OptimizedImage src={logoOrganiza.src} alt={logoOrganiza.alt} className="max-h-full max-w-full" imgClassName="object-contain" priority />
+                  <OptimizedImage src={logoOrganiza.src} alt={logoOrganiza.alt} className="h-full w-full" imgClassName="object-contain" priority />
                 </motion.div>
               </motion.div>
-
-              <div className="mx-auto mb-14 h-px w-2/3 bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
 
               <motion.div
                 ref={apoyanRef}
                 initial={{ opacity: 0, y: 30 }}
                 animate={apoyanVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="mb-14 flex flex-col items-center"
+                className="mb-20 flex flex-col items-center"
               >
                 <h4 className="mb-8 font-['Montserrat'] text-lg font-bold uppercase tracking-wider text-slate-500 sm:text-xl">
                   Apoyan
                 </h4>
-                <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16">
                   {logosApoyan.map((logo, i) => (
                     <motion.div
                       key={logo.id}
@@ -132,15 +130,13 @@ const Patrocinadores = () => {
                       animate={apoyanVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
                       whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                      className="flex h-28 w-44 shrink-0 items-center justify-center p-2"
+                      className={`flex shrink-0 items-center justify-center ${logo.size}`}
                     >
-                      <OptimizedImage src={logo.src} alt={logo.alt} className="max-h-full max-w-full" imgClassName="object-contain" />
+                      <OptimizedImage src={logo.src} alt={logo.alt} className="h-full w-full" imgClassName="object-contain" />
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
-
-              <div className="mx-auto mb-14 h-px w-2/3 bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
 
               <motion.div
                 ref={financianRef}
@@ -152,7 +148,7 @@ const Patrocinadores = () => {
                 <h4 className="mb-8 font-['Montserrat'] text-lg font-bold uppercase tracking-wider text-slate-500 sm:text-xl">
                   Financian
                 </h4>
-                <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16">
                   {logosFinancian.map((logo, i) => (
                     <motion.div
                       key={logo.id}
@@ -160,9 +156,9 @@ const Patrocinadores = () => {
                       animate={financianVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
                       whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                      className="flex h-28 w-44 shrink-0 items-center justify-center p-2"
+                      className={`flex shrink-0 items-center justify-center ${logo.size}`}
                     >
-                      <OptimizedImage src={logo.src} alt={logo.alt} className="max-h-full max-w-full" imgClassName="object-contain" />
+                      <OptimizedImage src={logo.src} alt={logo.alt} className="h-full w-full" imgClassName="object-contain" />
                     </motion.div>
                   ))}
                 </div>
