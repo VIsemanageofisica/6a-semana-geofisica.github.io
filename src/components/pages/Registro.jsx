@@ -1,32 +1,22 @@
-import { useState } from 'react'
 import Hero from '../static/Hero.jsx'
 import Video from '../static/VideoHero.jsx'
-import AnimatedButton from '../ui/AnimatedButton.jsx'
 import Button from '../ui/Button.jsx'
 import FeaturesCards from '../ui/FeaturesCards.jsx'
-import InscripcionModal from '../ui/InscripcionModal.jsx'
 import { DataPages } from '../../data/Vistas.js';
 import Flyer  from '../../assets/flyers/apoyo_estudiantes.png'
 
 const Registro = () => {
   const tituloRegistro = DataPages.find(page => page.id === 2)?.titleHero || "Inscripción al evento";
-  const [modalOpen, setModalOpen] = useState(false)
-  const [modalKey, setModalKey] = useState(0)
-
-  const openModal = () => {
-    setModalKey((key) => key + 1)
-    setModalOpen(true)
-  }
 
   return (
     <div>
         <Hero titulo={tituloRegistro}>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
-              className="w-full sm:w-auto sm:mr-12"
-              onClick={() => openModal()}
+              className="w-full sm:w-auto sm:mr-12 cursor-not-allowed opacity-70 hover:translate-y-0"
+              disabled
             >
-              <a>INSCRIBETE AHORA</a>
+              INSCRIPCIONES CERRADAS
             </Button>
 
             <Button 
@@ -59,7 +49,7 @@ const Registro = () => {
             {/* Descripción general del evento */}
             <div className="mx-auto mb-16 max-w-4xl text-center">
               <p className="font-['Montserrat'] text-base leading-relaxed text-slate-600 md:text-lg">
-                La VI Semana de la Geofísica se realizará en Bucaramanga, Santander, la reconocida “Ciudad Bonita”, un escenario ideal para el encuentro académico y científico en el corazón de los Andes colombianos. Este evento reunirá a estudiantes, profesionales e investigadores en torno a las últimas tendencias en exploración geofísica, inteligencia artificial aplicada a geociencias, transición energética, gestión del riesgo, sismología y agrogeofísica. La inscripción al evento se efectuará mediante un formulario de Google, donde encontrará toda la información e indicaciones necesarias para completar adecuadamente su registro y asegurar su participación en esta nueva edición del encuentro geofísico más importante de la región. 
+                La VI Semana de la Geofísica se realizará en Bucaramanga, Santander, la reconocida “Ciudad Bonita”, un escenario ideal para el encuentro académico y científico en el corazón de los Andes colombianos. Este evento reunirá a estudiantes, profesionales e investigadores en torno a las últimas tendencias en exploración geofísica, inteligencia artificial aplicada a geociencias, transición energética, gestión del riesgo, sismología y agrogeofísica. Las inscripciones al evento ya se encuentran cerradas. ¡Gracias a todos los que se registraron para hacer parte de esta nueva edición del encuentro geofísico más importante de la región!
               </p>
             </div>
 
@@ -168,18 +158,11 @@ const Registro = () => {
 
                 {/* Subtítulo 3 y Botón */}
                 <h3 className="mb-4 font-['Montserrat'] text-xl font-bold uppercase tracking-widest text-brand-800">
-                  ¿Cómo registrarte?
+                  Inscripciones cerradas
                 </h3>
                 <p className="mb-8 font-['Montserrat'] text-slate-600">
-                  Completa el formulario de inscripción haciendo clic en el botón disponible a continuación o escaneando el código QR del flyer.
+                  El periodo de inscripción a la VI Semana de la Geofísica ha finalizado. Si tienes alguna inquietud, escríbenos a 6a.semana.geofisica@gmail.com o síguenos en Instagram para noticias y actualizaciones.
                 </p>
-                <div className="flex w-full justify-start">
-                  <a>
-                    <AnimatedButton onClick={openModal}>
-                      REGISTRARME
-                    </AnimatedButton>
-                  </a>
-                </div>
               </div>
 
               {/* COLUMNA DERECHA: Flyer y Mapa */}
@@ -212,8 +195,6 @@ const Registro = () => {
 
         {/* Sección de video de fondo/cierre */}
         <Video/>
-
-        <InscripcionModal key={modalKey} open={modalOpen} onClose={() => setModalOpen(false)} />
 
     </div>
   )
